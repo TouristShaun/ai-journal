@@ -3,61 +3,61 @@ package models
 import (
 	"database/sql/driver"
 	"fmt"
-	"time"
 	"github.com/pgvector/pgvector-go"
+	"time"
 )
 
 type JournalEntry struct {
-	ID                     string            `json:"id" db:"id"`
-	Content                string            `json:"content" db:"content"`
-	ProcessedData          ProcessedData     `json:"processed_data" db:"processed_data"`
-	Embedding              pgvector.Vector   `json:"-" db:"embedding"`
-	CreatedAt              time.Time         `json:"created_at" db:"created_at"`
-	UpdatedAt              time.Time         `json:"updated_at" db:"updated_at"`
-	IsFavorite             bool              `json:"is_favorite" db:"is_favorite"`
-	CollectionIDs          []string          `json:"collection_ids" db:"collection_ids"`
-	OriginalEntryID        *string           `json:"original_entry_id,omitempty" db:"original_entry_id"`
-	ProcessingStage        ProcessingStage   `json:"processing_stage" db:"processing_stage"`
-	ProcessingStartedAt    *time.Time        `json:"processing_started_at,omitempty" db:"processing_started_at"`
-	ProcessingCompletedAt  *time.Time        `json:"processing_completed_at,omitempty" db:"processing_completed_at"`
-	ProcessingError        *string           `json:"processing_error,omitempty" db:"processing_error"`
+	ID                    string          `json:"id" db:"id"`
+	Content               string          `json:"content" db:"content"`
+	ProcessedData         ProcessedData   `json:"processed_data" db:"processed_data"`
+	Embedding             pgvector.Vector `json:"-" db:"embedding"`
+	CreatedAt             time.Time       `json:"created_at" db:"created_at"`
+	UpdatedAt             time.Time       `json:"updated_at" db:"updated_at"`
+	IsFavorite            bool            `json:"is_favorite" db:"is_favorite"`
+	CollectionIDs         []string        `json:"collection_ids" db:"collection_ids"`
+	OriginalEntryID       *string         `json:"original_entry_id,omitempty" db:"original_entry_id"`
+	ProcessingStage       ProcessingStage `json:"processing_stage" db:"processing_stage"`
+	ProcessingStartedAt   *time.Time      `json:"processing_started_at,omitempty" db:"processing_started_at"`
+	ProcessingCompletedAt *time.Time      `json:"processing_completed_at,omitempty" db:"processing_completed_at"`
+	ProcessingError       *string         `json:"processing_error,omitempty" db:"processing_error"`
 }
 
 type ProcessedData struct {
-	Summary         string          `json:"summary"`
-	ExtractedURLs   []ExtractedURL  `json:"extracted_urls"`
-	Entities        []string        `json:"entities"`
-	Topics          []string        `json:"topics"`
-	Sentiment       string          `json:"sentiment"`
-	Metadata        map[string]any  `json:"metadata"`
+	Summary       string         `json:"summary"`
+	ExtractedURLs []ExtractedURL `json:"extracted_urls"`
+	Entities      []string       `json:"entities"`
+	Topics        []string       `json:"topics"`
+	Sentiment     string         `json:"sentiment"`
+	Metadata      map[string]any `json:"metadata"`
 }
 
 type ExtractedURL struct {
-	URL             string          `json:"url"`
-	Title           string          `json:"title"`
-	Content         string          `json:"content"`
-	ExtractedAt     time.Time       `json:"extracted_at"`
-	Source          string          `json:"source"`
+	URL         string    `json:"url"`
+	Title       string    `json:"title"`
+	Content     string    `json:"content"`
+	ExtractedAt time.Time `json:"extracted_at"`
+	Source      string    `json:"source"`
 }
 
 type Collection struct {
-	ID              string          `json:"id" db:"id"`
-	Name            string          `json:"name" db:"name"`
-	Description     string          `json:"description" db:"description"`
-	CreatedAt       time.Time       `json:"created_at" db:"created_at"`
-	UpdatedAt       time.Time       `json:"updated_at" db:"updated_at"`
+	ID          string    `json:"id" db:"id"`
+	Name        string    `json:"name" db:"name"`
+	Description string    `json:"description" db:"description"`
+	CreatedAt   time.Time `json:"created_at" db:"created_at"`
+	UpdatedAt   time.Time `json:"updated_at" db:"updated_at"`
 }
 
 // ProcessingStage represents the current stage of journal entry processing
 type ProcessingStage string
 
 const (
-	StageCreated             ProcessingStage = "created"
-	StageAnalyzing           ProcessingStage = "analyzing"
-	StageFetchingURLs        ProcessingStage = "fetching_urls"
+	StageCreated              ProcessingStage = "created"
+	StageAnalyzing            ProcessingStage = "analyzing"
+	StageFetchingURLs         ProcessingStage = "fetching_urls"
 	StageGeneratingEmbeddings ProcessingStage = "generating_embeddings"
-	StageCompleted           ProcessingStage = "completed"
-	StageFailed              ProcessingStage = "failed"
+	StageCompleted            ProcessingStage = "completed"
+	StageFailed               ProcessingStage = "failed"
 )
 
 // Scan implements the sql.Scanner interface

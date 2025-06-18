@@ -48,31 +48,31 @@ func (s *Server) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
 		return
 	}
-	
+
 	var req Request
 	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
 		s.writeError(w, nil, -32700, "Parse error", err.Error())
 		return
 	}
-	
+
 	if req.JSONRPC != "2.0" {
 		s.writeError(w, req.ID, -32600, "Invalid Request", "JSON-RPC version must be 2.0")
 		return
 	}
-	
+
 	handler, exists := s.handlers[req.Method]
 	if !exists {
 		s.writeError(w, req.ID, -32601, "Method not found", fmt.Sprintf("Method '%s' not found", req.Method))
 		return
 	}
-	
+
 	result, err := handler(req.Params)
 	if err != nil {
 		log.Printf("Error in method %s: %v", req.Method, err)
 		s.writeError(w, req.ID, -32000, "Server error", err.Error())
 		return
 	}
-	
+
 	s.writeResult(w, req.ID, result)
 }
 
@@ -86,7 +86,7 @@ func (s *Server) writeError(w http.ResponseWriter, id interface{}, code int, mes
 		},
 		ID: id,
 	}
-	
+
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(resp)
 }
@@ -97,7 +97,7 @@ func (s *Server) writeResult(w http.ResponseWriter, id interface{}, result inter
 		Result:  result,
 		ID:      id,
 	}
-	
+
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(resp)
 }

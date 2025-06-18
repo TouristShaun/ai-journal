@@ -128,6 +128,41 @@ Unlike traditional apps that make you wait, entries save instantly while AI enri
 ### MCP Agent Architecture
 The modular MCP agent design allows for future expansion - add new tools for weather data, calendar integration, or any other contextual information.
 
+## New Features (Phase 1-3 Implementation)
+
+### Enhanced Search Capabilities
+- **Vector Search Modes**: Similar (default), Explore (conceptual connections), and Contrast (opposing viewpoints)
+- **Hybrid Search Strategies**: Balanced, Semantic Boost, Precision Mode, and Discovery Mode with weighted scoring
+- **Search Suggestions**: Popular topics, entities, and recent entries displayed when search is empty
+- **Full Filtering**: All search types now support collections, favorites, and date filtering
+
+### Improved User Experience
+- **Retry Processing**: Failed entries can be retried with automatic state reset
+- **Keyboard Shortcuts**: Comprehensive shortcuts with help panel (press ? to view)
+  - Ctrl+N: New entry
+  - Ctrl+K: Focus search
+  - Ctrl+E: Edit entry
+  - Ctrl+S: Save entry
+  - Ctrl+Enter: Toggle fullscreen
+- **Export Functionality**: Export entries in JSON, Markdown, or CSV formats
+- **Enhanced Error Handling**: Global error boundary, detailed error messages, and retry logic
+- **Advanced Processing Tracker**: Domino's-inspired visual progress tracker with:
+  - Real-time stage updates with animated icons
+  - Auto-collapse after 2 seconds on completion
+  - Manual expand/collapse controls
+  - Clickable AI Analysis box to toggle visibility
+  - Different visual states for processing vs completed entries
+
+### AI Enhancements
+- **Improved Prompts**: All Ollama prompts now include few-shot examples for better consistency
+- **Smart Failure Analysis**: AI-powered analysis of processing failures with actionable solutions
+- **Richer Embeddings**: Metadata included in embeddings for better semantic search
+
+### Real-Time Updates
+- **SSE Events**: All collection operations now trigger real-time updates
+- **Live Processing Status**: Timer updates every second during processing
+- **Optimistic UI**: Immediate feedback for user actions
+
 ## Development
 
 ### Running Tests
@@ -170,9 +205,11 @@ lsof -ti:5173 | xargs kill -9  # Frontend
 - Voice-to-text journal entries
 - Multi-modal embeddings (images, audio)
 - Collaborative collections
-- Export to various formats
 - Mobile applications
 - Advanced visualization of thought patterns
+- Batch import from other journaling apps
+- Time-based analytics and insights
+- Custom AI models for specialized use cases
 
 ## License
 [License Type]

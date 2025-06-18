@@ -1,0 +1,628 @@
+{
+  "generated_at": "2025-06-16T17:58:26.423009-04:00",
+  "summary": {
+    "classic": {
+      "precision": 0.44047619047619047,
+      "recall": 1,
+      "f1_score": 0.6115702479338843,
+      "ndcg": 0.2618295739348371,
+      "mrr": 0.43421052631578944,
+      "avg_latency_ms": 1.3333333333333333,
+      "test_count": 5
+    },
+    "hybrid": {
+      "precision": 0.04096989966555184,
+      "recall": 0.75,
+      "f1_score": 0.07769556025369978,
+      "ndcg": 0.20961538461538462,
+      "mrr": 0.5192307692307693,
+      "avg_latency_ms": 20,
+      "test_count": 4
+    },
+    "vector": {
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0,
+      "ndcg": 0,
+      "mrr": 0,
+      "avg_latency_ms": 0,
+      "test_count": 9
+    }
+  },
+  "detailed": {
+    "classic": {
+      "mode": "classic",
+      "precision": 0.44047619047619047,
+      "recall": 1,
+      "f1_score": 0.6115702479338843,
+      "ndcg": 0.2618295739348371,
+      "mrr": 0.43421052631578944,
+      "avg_latency_ms": 1.3333333333333333,
+      "test_cases": [
+        {
+          "test_id": "classic_keyword_1",
+          "query": "digital",
+          "expected_ids": [
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2"
+          ],
+          "actual_ids": [
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2"
+          ],
+          "precision": 1,
+          "recall": 1,
+          "latency_ms": 2640708
+        },
+        {
+          "test_id": "classic_keyword_2",
+          "query": "culture",
+          "expected_ids": [
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+          ],
+          "actual_ids": [
+            "e48a7f9d-46bf-4cf8-81a7-f907dc665450",
+            "61f782e5-ffc8-4549-aa9d-384de34a4d41",
+            "62e21e14-49f8-4e62-b441-c5691bee513f",
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+          ],
+          "precision": 0.25,
+          "recall": 1,
+          "latency_ms": 498250
+        },
+        {
+          "test_id": "classic_topic_work",
+          "query": "work",
+          "expected_ids": [
+            "b375a0a5-6675-4c97-876b-5a5916657787",
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "0cb0f6f3-25b0-4b3b-9e48-f517d3ad56f1",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "f3ee9d5c-3b87-420b-9ac9-25c6e10424fb",
+            "68c4621c-37fa-4f7f-babf-80d445f9c877",
+            "aae6af8c-1545-40ab-a7aa-da215fa361e3",
+            "b375a0a5-6675-4c97-876b-5a5916657787",
+            "cab428db-39bc-4dd4-bcf0-5bf26f4efec8",
+            "1ef18f4a-fcb7-4520-9e13-312a716939e1",
+            "c310937d-617d-4575-8439-39303cfb6284",
+            "bca61522-b423-4352-be36-954a17a69ced",
+            "61f782e5-ffc8-4549-aa9d-384de34a4d41",
+            "62e21e14-49f8-4e62-b441-c5691bee513f",
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+          ],
+          "precision": 0.07142857142857142,
+          "recall": 1,
+          "latency_ms": 2283208
+        },
+        {
+          "test_id": "classic_topic_mindfulness",
+          "query": "mindfulness",
+          "expected_ids": [
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2",
+            "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52"
+          ],
+          "actual_ids": [
+            "d0b159e0-4d9c-4680-9dd5-3ba07677aaa5",
+            "fe218002-2bde-428c-806e-b785d333c111",
+            "fef7fccb-0f21-498a-b55d-bb3d0616848e",
+            "f65d3407-2d4c-466b-932a-081d536ceb58"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 345708
+        },
+        {
+          "test_id": "classic_entity_OpenAI",
+          "query": "\"OpenAI\"",
+          "expected_ids": [
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b",
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "054338a5-a589-45f2-91b4-822a79ee0d53",
+            "65ead733-9dd8-4ed1-8d19-23d1ac4a68ac"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 310500
+        }
+      ],
+      "timestamp": "2025-06-16T17:58:25.551111-04:00"
+    },
+    "hybrid": {
+      "mode": "hybrid",
+      "precision": 0.04096989966555184,
+      "recall": 0.75,
+      "f1_score": 0.07769556025369978,
+      "ndcg": 0.20961538461538462,
+      "mrr": 0.5192307692307693,
+      "avg_latency_ms": 20,
+      "test_cases": [
+        {
+          "test_id": "hybrid_keyword_semantic_1",
+          "query": "digital",
+          "expected_ids": [
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2",
+            "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52"
+          ],
+          "actual_ids": [
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "b6184fb1-de87-428a-88d1-68761956ad94"
+          ],
+          "precision": 0.043478260869565216,
+          "recall": 0.5,
+          "latency_ms": 19563625
+        },
+        {
+          "test_id": "hybrid_keyword_semantic_2",
+          "query": "culture",
+          "expected_ids": [
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+          ],
+          "actual_ids": [
+            "e48a7f9d-46bf-4cf8-81a7-f907dc665450",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "61f782e5-ffc8-4549-aa9d-384de34a4d41",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "62e21e14-49f8-4e62-b441-c5691bee513f",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+          ],
+          "precision": 0.038461538461538464,
+          "recall": 1,
+          "latency_ms": 21817500
+        },
+        {
+          "test_id": "hybrid_natural_0",
+          "query": "How can I improve my productivity while working from home?",
+          "expected_ids": [
+            "b375a0a5-6675-4c97-876b-5a5916657787",
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "b6184fb1-de87-428a-88d1-68761956ad94"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 22610459
+        },
+        {
+          "test_id": "hybrid_natural_1",
+          "query": "Tell me about recent technology innovations",
+          "expected_ids": [
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2"
+          ],
+          "actual_ids": [
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "b6184fb1-de87-428a-88d1-68761956ad94"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 26200375
+        }
+      ],
+      "timestamp": "2025-06-16T17:58:26.328707-04:00"
+    },
+    "vector": {
+      "mode": "vector",
+      "precision": 0,
+      "recall": 0,
+      "f1_score": 0,
+      "ndcg": 0,
+      "mrr": 0,
+      "avg_latency_ms": 0,
+      "test_cases": [
+        {
+          "test_id": "vector_similar_0",
+          "query": "Entry 3: travel and Oxford\n\nWorking on travel project with Oxford. The main challenge is culture but",
+          "expected_ids": [],
+          "actual_ids": [
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "b6184fb1-de87-428a-88d1-68761956ad94"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 587554834
+        },
+        {
+          "test_id": "vector_similar_1",
+          "query": "Entry 1: work and Stanford\n\nReflecting on my experience with work. It's been a journey with Stanford",
+          "expected_ids": [
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "b6184fb1-de87-428a-88d1-68761956ad94"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 32944167
+        },
+        {
+          "test_id": "vector_similar_2",
+          "query": "Entry 2: technology and Tesla\n\nHad a great conversation with technology about Tesla. We discussed ho",
+          "expected_ids": [
+            "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52"
+          ],
+          "actual_ids": [
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "b6184fb1-de87-428a-88d1-68761956ad94"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 27298208
+        },
+        {
+          "test_id": "vector_explore_0",
+          "query": "Entry 1: work and Stanford\n\nReflecting on my experience with work. It's been a journey with Stanford",
+          "expected_ids": [
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 25767167
+        },
+        {
+          "test_id": "vector_explore_1",
+          "query": "Entry 2: technology and Tesla\n\nHad a great conversation with technology about Tesla. We discussed ho",
+          "expected_ids": [
+            "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52"
+          ],
+          "actual_ids": [
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 20597708
+        },
+        {
+          "test_id": "vector_explore_2",
+          "query": "Entry 3: travel and Oxford\n\nWorking on travel project with Oxford. The main challenge is culture but",
+          "expected_ids": [
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 19051083
+        },
+        {
+          "test_id": "vector_contrast_0",
+          "query": "Entry 1: work and Stanford\n\nReflecting on my experience with work. It's been a journey with Stanford",
+          "expected_ids": [
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2",
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b",
+            "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52",
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 18895500
+        },
+        {
+          "test_id": "vector_contrast_1",
+          "query": "Entry 2: technology and Tesla\n\nHad a great conversation with technology about Tesla. We discussed ho",
+          "expected_ids": [
+            "b375a0a5-6675-4c97-876b-5a5916657787",
+            "fcfd601d-286f-4fe6-9613-8f0445cf8a8b",
+            "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52",
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 19112292
+        },
+        {
+          "test_id": "vector_contrast_2",
+          "query": "Entry 3: travel and Oxford\n\nWorking on travel project with Oxford. The main challenge is culture but",
+          "expected_ids": [
+            "b375a0a5-6675-4c97-876b-5a5916657787",
+            "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2",
+            "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52",
+            "68c4621c-37fa-4f7f-babf-80d445f9c877"
+          ],
+          "actual_ids": [
+            "b6184fb1-de87-428a-88d1-68761956ad94",
+            "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+            "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+            "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+            "7a2d69ba-233f-4532-839d-5f48936c7be4",
+            "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+            "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+            "b6254994-7915-43fc-9c9f-c949dc89567a",
+            "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+            "9a183c12-0e33-443a-887b-59875aa54a05",
+            "3666fe8e-cfca-45c7-8207-b12f1f7a6987",
+            "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+            "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+            "81519776-edaf-4b3b-90b5-54527388d2b3",
+            "1e130fe9-86ed-4663-9ef1-8e8b4d7bdb17",
+            "ba06354c-2445-4858-a3c1-975c15715f28",
+            "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+            "3d250313-abe5-4911-8560-73252316af7e",
+            "bf8267cf-d814-4d33-9bd8-211aef664ba2",
+            "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+            "5e3641bc-b141-4f74-89fe-2c6dd8af180d",
+            "41129dc2-4fc1-4fd7-80ce-220b654518ff"
+          ],
+          "precision": 0,
+          "recall": 0,
+          "latency_ms": 19448417
+        }
+      ],
+      "timestamp": "2025-06-16T17:58:25.557406-04:00"
+    }
+  }
+}

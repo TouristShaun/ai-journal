@@ -1,0 +1,114 @@
+{
+  "mode": "classic",
+  "precision": 0.44047619047619047,
+  "recall": 1,
+  "f1_score": 0.6115702479338843,
+  "ndcg": 0.2618295739348371,
+  "mrr": 0.43421052631578944,
+  "avg_latency_ms": 1.3333333333333333,
+  "test_cases": [
+    {
+      "test_id": "classic_keyword_1",
+      "query": "digital",
+      "expected_ids": [
+        "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2"
+      ],
+      "actual_ids": [
+        "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2"
+      ],
+      "precision": 1,
+      "recall": 1,
+      "latency_ms": 2640708
+    },
+    {
+      "test_id": "classic_keyword_2",
+      "query": "culture",
+      "expected_ids": [
+        "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+      ],
+      "actual_ids": [
+        "e48a7f9d-46bf-4cf8-81a7-f907dc665450",
+        "61f782e5-ffc8-4549-aa9d-384de34a4d41",
+        "62e21e14-49f8-4e62-b441-c5691bee513f",
+        "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+      ],
+      "precision": 0.25,
+      "recall": 1,
+      "latency_ms": 498250
+    },
+    {
+      "test_id": "classic_topic_work",
+      "query": "work",
+      "expected_ids": [
+        "b375a0a5-6675-4c97-876b-5a5916657787",
+        "68c4621c-37fa-4f7f-babf-80d445f9c877"
+      ],
+      "actual_ids": [
+        "ba06354c-2445-4858-a3c1-975c15715f28",
+        "5896a4f5-4265-4db1-a681-eb1c33f6ee97",
+        "81519776-edaf-4b3b-90b5-54527388d2b3",
+        "9f79efc7-e8bc-414f-8c0e-2c8ed7a46d8a",
+        "7a2d69ba-233f-4532-839d-5f48936c7be4",
+        "c9a50f77-3f34-4cf3-86a5-cfbbbb5821ba",
+        "d55fe2ce-7838-4726-a3a4-9635a09586b6",
+        "a705275e-3cb4-4348-bd66-dfa1288c1f13",
+        "b6184fb1-de87-428a-88d1-68761956ad94",
+        "e2d6a11c-463c-48a9-b8cf-2f23615b73bc",
+        "b6254994-7915-43fc-9c9f-c949dc89567a",
+        "9a183c12-0e33-443a-887b-59875aa54a05",
+        "0759b174-7edd-4e69-9fc1-7a1b5dfce848",
+        "0cb0f6f3-25b0-4b3b-9e48-f517d3ad56f1",
+        "9d7b3e9a-0724-4ef0-85b7-0adfa0f1714b",
+        "8020b1d9-5dd4-4842-b435-0bf61f31b6a8",
+        "15ccc3d9-1fee-4643-886a-81c4babbaf22",
+        "f3ee9d5c-3b87-420b-9ac9-25c6e10424fb",
+        "68c4621c-37fa-4f7f-babf-80d445f9c877",
+        "aae6af8c-1545-40ab-a7aa-da215fa361e3",
+        "b375a0a5-6675-4c97-876b-5a5916657787",
+        "cab428db-39bc-4dd4-bcf0-5bf26f4efec8",
+        "1ef18f4a-fcb7-4520-9e13-312a716939e1",
+        "c310937d-617d-4575-8439-39303cfb6284",
+        "bca61522-b423-4352-be36-954a17a69ced",
+        "61f782e5-ffc8-4549-aa9d-384de34a4d41",
+        "62e21e14-49f8-4e62-b441-c5691bee513f",
+        "fcfd601d-286f-4fe6-9613-8f0445cf8a8b"
+      ],
+      "precision": 0.07142857142857142,
+      "recall": 1,
+      "latency_ms": 2283208
+    },
+    {
+      "test_id": "classic_topic_mindfulness",
+      "query": "mindfulness",
+      "expected_ids": [
+        "2401d66e-9e2a-4c1a-8d46-3a5a9b6804c2",
+        "d0161ab2-9ee7-4b5c-a4aa-f0f0718c1f52"
+      ],
+      "actual_ids": [
+        "d0b159e0-4d9c-4680-9dd5-3ba07677aaa5",
+        "fe218002-2bde-428c-806e-b785d333c111",
+        "fef7fccb-0f21-498a-b55d-bb3d0616848e",
+        "f65d3407-2d4c-466b-932a-081d536ceb58"
+      ],
+      "precision": 0,
+      "recall": 0,
+      "latency_ms": 345708
+    },
+    {
+      "test_id": "classic_entity_OpenAI",
+      "query": "\"OpenAI\"",
+      "expected_ids": [
+        "fcfd601d-286f-4fe6-9613-8f0445cf8a8b",
+        "68c4621c-37fa-4f7f-babf-80d445f9c877"
+      ],
+      "actual_ids": [
+        "054338a5-a589-45f2-91b4-822a79ee0d53",
+        "65ead733-9dd8-4ed1-8d19-23d1ac4a68ac"
+      ],
+      "precision": 0,
+      "recall": 0,
+      "latency_ms": 310500
+    }
+  ],
+  "timestamp": "2025-06-16T17:58:25.551111-04:00"
+}

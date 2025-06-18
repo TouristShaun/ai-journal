@@ -7,7 +7,7 @@ import (
 	"log"
 	"sync"
 	"time"
-	
+
 	"github.com/journal/internal/models"
 )
 
@@ -31,10 +31,10 @@ func NewProcessingLogger(db *sql.DB) *ProcessingLogger {
 		db:      db,
 		buffers: make(map[string]*LogBuffer),
 	}
-	
+
 	// Start background flusher
 	go pl.backgroundFlusher()
-	
+
 	return pl
 }
 
@@ -68,12 +68,12 @@ func (pl *ProcessingLogger) log(entryID string, stage models.ProcessingStage, le
 		Details:   details,
 		CreatedAt: time.Now(),
 	}
-	
+
 	// Also log to stdout for debugging
 	detailsJSON, _ := json.Marshal(details)
-	log.Printf("[%s] Entry %s - Stage: %s - %s: %s %s", 
+	log.Printf("[%s] Entry %s - Stage: %s - %s: %s %s",
 		level, entryID, stage, level, message, string(detailsJSON))
-	
+
 	// Add to buffer
 	pl.mu.Lock()
 	buffer, exists := pl.buffers[entryID]
@@ -85,12 +85,12 @@ func (pl *ProcessingLogger) log(entryID string, stage models.ProcessingStage, le
 		pl.buffers[entryID] = buffer
 	}
 	pl.mu.Unlock()
-	
+
 	buffer.mu.Lock()
 	buffer.logs = append(buffer.logs, logEntry)
 	shouldFlush := len(buffer.logs) >= 10 || time.Since(buffer.lastFlush) > 5*time.Second
 	buffer.mu.Unlock()
-	
+
 	if shouldFlush {
 		pl.flushBuffer(entryID)
 	}
@@ -100,13 +100,13 @@ func (pl *ProcessingLogger) log(entryID string, stage models.ProcessingStage, le
 func (pl *ProcessingLogger) UpdateStage(entryID string, stage models.ProcessingStage) error {
 	// Log the stage transition
 	pl.LogInfo(entryID, stage, fmt.Sprintf("Transitioning to stage: %s", stage), nil)
-	
+
 	// Update the database
 	query := `
 		UPDATE journal_entries 
 		SET processing_stage = $1, updated_at = $2
 		WHERE id = $3`
-	
+
 	_, err := pl.db.Exec(query, stage, time.Now(), entryID)
 	if err != nil {
 		pl.LogError(entryID, stage, "Failed to update processing stage", map[string]interface{}{
@@ -114,7 +114,7 @@ func (pl *ProcessingLogger) UpdateStage(entryID string, stage models.ProcessingS
 		})
 		return fmt.Errorf("failed to update processing stage: %w", err)
 	}
-	
+
 	// Update processing timestamps
 	if stage == models.StageAnalyzing {
 		// Mark processing as started
@@ -125,7 +125,7 @@ func (pl *ProcessingLogger) UpdateStage(entryID string, stage models.ProcessingS
 		query = `UPDATE journal_entries SET processing_completed_at = $1 WHERE id = $2`
 		_, err = pl.db.Exec(query, time.Now(), entryID)
 	}
-	
+
 	return err
 }
 
@@ -134,18 +134,18 @@ func (pl *ProcessingLogger) SetError(entryID string, stage models.ProcessingStag
 	pl.LogError(entryID, stage, "Processing failed", map[string]interface{}{
 		"error": err.Error(),
 	})
-	
+
 	// Update the database
 	query := `
 		UPDATE journal_entries 
 		SET processing_stage = $1, processing_error = $2, processing_completed_at = $3
 		WHERE id = $4`
-	
+
 	_, dbErr := pl.db.Exec(query, models.StageFailed, err.Error(), time.Now(), entryID)
 	if dbErr != nil {
 		return fmt.Errorf("failed to set processing error: %w", dbErr)
 	}
-	
+
 	return nil
 }
 
@@ -153,37 +153,37 @@ func (pl *ProcessingLogger) SetError(entryID string, stage models.ProcessingStag
 func (pl *ProcessingLogger) GetLogs(entryID string) ([]models.ProcessingLog, error) {
 	// Flush any pending logs first
 	pl.flushBuffer(entryID)
-	
+
 	query := `
 		SELECT id, entry_id, stage, level, message, details, created_at
 		FROM processing_logs
 		WHERE entry_id = $1
 		ORDER BY created_at ASC`
-	
+
 	rows, err := pl.db.Query(query, entryID)
 	if err != nil {
 		return nil, fmt.Errorf("failed to query logs: %w", err)
 	}
 	defer rows.Close()
-	
+
 	var logs []models.ProcessingLog
 	for rows.Next() {
 		var log models.ProcessingLog
 		var detailsJSON []byte
-		
-		err := rows.Scan(&log.ID, &log.EntryID, &log.Stage, &log.Level, 
+
+		err := rows.Scan(&log.ID, &log.EntryID, &log.Stage, &log.Level,
 			&log.Message, &detailsJSON, &log.CreatedAt)
 		if err != nil {
 			return nil, fmt.Errorf("failed to scan log: %w", err)
 		}
-		
+
 		if len(detailsJSON) > 0 {
 			json.Unmarshal(detailsJSON, &log.Details)
 		}
-		
+
 		logs = append(logs, log)
 	}
-	
+
 	return logs, nil
 }
 
@@ -191,37 +191,37 @@ func (pl *ProcessingLogger) GetLogs(entryID string) ([]models.ProcessingLog, err
 func (pl *ProcessingLogger) GetLogsByStage(entryID string, stage models.ProcessingStage) ([]models.ProcessingLog, error) {
 	// Flush any pending logs first
 	pl.flushBuffer(entryID)
-	
+
 	query := `
 		SELECT id, entry_id, stage, level, message, details, created_at
 		FROM processing_logs
 		WHERE entry_id = $1 AND stage = $2
 		ORDER BY created_at ASC`
-	
+
 	rows, err := pl.db.Query(query, entryID, stage)
 	if err != nil {
 		return nil, fmt.Errorf("failed to query logs: %w", err)
 	}
 	defer rows.Close()
-	
+
 	var logs []models.ProcessingLog
 	for rows.Next() {
 		var log models.ProcessingLog
 		var detailsJSON []byte
-		
-		err := rows.Scan(&log.ID, &log.EntryID, &log.Stage, &log.Level, 
+
+		err := rows.Scan(&log.ID, &log.EntryID, &log.Stage, &log.Level,
 			&log.Message, &detailsJSON, &log.CreatedAt)
 		if err != nil {
 			return nil, fmt.Errorf("failed to scan log: %w", err)
 		}
-		
+
 		if len(detailsJSON) > 0 {
 			json.Unmarshal(detailsJSON, &log.Details)
 		}
-		
+
 		logs = append(logs, log)
 	}
-	
+
 	return logs, nil
 }
 
@@ -230,23 +230,23 @@ func (pl *ProcessingLogger) flushBuffer(entryID string) {
 	pl.mu.RLock()
 	buffer, exists := pl.buffers[entryID]
 	pl.mu.RUnlock()
-	
+
 	if !exists {
 		return
 	}
-	
+
 	buffer.mu.Lock()
 	if len(buffer.logs) == 0 {
 		buffer.mu.Unlock()
 		return
 	}
-	
+
 	logs := make([]models.ProcessingLog, len(buffer.logs))
 	copy(logs, buffer.logs)
 	buffer.logs = buffer.logs[:0]
 	buffer.lastFlush = time.Now()
 	buffer.mu.Unlock()
-	
+
 	// Batch insert logs
 	tx, err := pl.db.Begin()
 	if err != nil {
@@ -254,7 +254,7 @@ func (pl *ProcessingLogger) flushBuffer(entryID string) {
 		return
 	}
 	defer tx.Rollback()
-	
+
 	stmt, err := tx.Prepare(`
 		INSERT INTO processing_logs (entry_id, stage, level, message, details, created_at)
 		VALUES ($1, $2, $3, $4, $5, $6)`)
@@ -263,16 +263,16 @@ func (pl *ProcessingLogger) flushBuffer(entryID string) {
 		return
 	}
 	defer stmt.Close()
-	
+
 	for _, logEntry := range logs {
 		detailsJSON, _ := json.Marshal(logEntry.Details)
-		_, err = stmt.Exec(logEntry.EntryID, logEntry.Stage, logEntry.Level, 
+		_, err = stmt.Exec(logEntry.EntryID, logEntry.Stage, logEntry.Level,
 			logEntry.Message, detailsJSON, logEntry.CreatedAt)
 		if err != nil {
 			log.Printf("Failed to insert log: %v", err)
 		}
 	}
-	
+
 	if err = tx.Commit(); err != nil {
 		log.Printf("Failed to commit log batch: %v", err)
 	}
@@ -282,7 +282,7 @@ func (pl *ProcessingLogger) flushBuffer(entryID string) {
 func (pl *ProcessingLogger) backgroundFlusher() {
 	ticker := time.NewTicker(5 * time.Second)
 	defer ticker.Stop()
-	
+
 	for range ticker.C {
 		pl.mu.RLock()
 		entryIDs := make([]string, 0, len(pl.buffers))
@@ -290,7 +290,7 @@ func (pl *ProcessingLogger) backgroundFlusher() {
 			entryIDs = append(entryIDs, entryID)
 		}
 		pl.mu.RUnlock()
-		
+
 		for _, entryID := range entryIDs {
 			pl.flushBuffer(entryID)
 		}

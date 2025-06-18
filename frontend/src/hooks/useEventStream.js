@@ -51,13 +51,71 @@ export function useEventStream() {
         console.log('Received event:', data);
 
         switch (data.type) {
+          case 'entry.created':
+            // Add new entry to the cache
+            queryClient.setQueriesData(['entries'], (oldData) => {
+              if (!oldData) return [{
+                ...data.data.entry,
+                processing_started_at: data.data.entry.processing_started_at || new Date().toISOString()
+              }];
+              
+              // Check if entry already exists (prevent duplicates)
+              const exists = oldData.some(entry => entry.id === data.data.entry.id);
+              if (exists) return oldData;
+              
+              // Add new entry at the beginning with processing timestamp
+              return [{
+                ...data.data.entry,
+                processing_started_at: data.data.entry.processing_started_at || new Date().toISOString()
+              }, ...oldData];
+            });
+            
+            // Invalidate to ensure proper sorting and filtering
+            queryClient.invalidateQueries(['entries']);
+            break;
+
+          case 'entry.updated':
+            // Update the entry in cache
+            queryClient.setQueriesData(['entries'], (oldData) => {
+              if (!oldData) return oldData;
+              
+              return oldData.map(entry => {
+                if (entry.id === data.data.original_id) {
+                  return data.data.entry;
+                }
+                return entry;
+              });
+            });
+            
+            // Update single entry query
+            queryClient.setQueryData(['entry', data.data.original_id], data.data.entry);
+            queryClient.setQueryData(['entry', data.data.entry.id], data.data.entry);
+            
+            // Invalidate to refresh
+            queryClient.invalidateQueries(['entries']);
+            break;
+
+          case 'entry.deleted':
+            // Remove entry from cache
+            queryClient.setQueriesData(['entries'], (oldData) => {
+              if (!oldData) return oldData;
+              return oldData.filter(entry => entry.id !== data.entry_id);
+            });
+            
+            // Remove from single entry cache
+            queryClient.removeQueries(['entry', data.entry_id]);
+            break;
+
           case 'entry.processing':
+            console.log('Processing stage update received:', data);
+            
             // Update the entry status in the cache
             queryClient.setQueriesData(['entries'], (oldData) => {
               if (!oldData) return oldData;
               
               return oldData.map(entry => {
                 if (entry.id === data.entry_id) {
+                  console.log(`Updating entry ${data.entry_id} to stage: ${data.data.stage}`);
                   return {
                     ...entry,
                     processing_stage: data.data.stage || 'analyzing',
@@ -80,19 +138,31 @@ export function useEventStream() {
             break;
 
           case 'entry.processed':
+            console.log('Processing completed event received:', data);
+            
             // Update the entry with processed data
             queryClient.setQueriesData(['entries'], (oldData) => {
               if (!oldData) return oldData;
               
               return oldData.map(entry => {
                 if (entry.id === data.entry_id) {
-                  return {
-                    ...entry,
-                    processed_data: data.data.processed_data,
-                    updated_at: data.data.updated_at,
-                    processing_stage: 'completed',
-                    processing_completed_at: new Date().toISOString()
-                  };
+                  // Always expect entry data in the event
+                  if (data.data && data.data.entry) {
+                    console.log('Updating entry with processed data:', data.data.entry);
+                    return {
+                      ...data.data.entry,
+                      processing_stage: 'completed',
+                      processing_completed_at: data.data.entry.processing_completed_at || new Date().toISOString()
+                    };
+                  } else {
+                    console.warn('entry.processed event missing entry data:', data);
+                    // Fallback: just update the stage
+                    return {
+                      ...entry,
+                      processing_stage: 'completed',
+                      processing_completed_at: new Date().toISOString()
+                    };
+                  }
                 }
                 return entry;
               });
@@ -101,17 +171,23 @@ export function useEventStream() {
             // Update single entry queries
             queryClient.setQueryData(['entry', data.entry_id], (oldEntry) => {
               if (!oldEntry) return oldEntry;
-              return {
-                ...oldEntry,
-                processed_data: data.data.processed_data,
-                updated_at: data.data.updated_at,
-                processing_stage: 'completed',
-                processing_completed_at: new Date().toISOString()
-              };
+              if (data.data && data.data.entry) {
+                return {
+                  ...data.data.entry,
+                  processing_stage: 'completed',
+                  processing_completed_at: data.data.entry.processing_completed_at || new Date().toISOString()
+                };
+              } else {
+                return {
+                  ...oldEntry,
+                  processing_stage: 'completed',
+                  processing_completed_at: new Date().toISOString()
+                };
+              }
             });
             
-            // Also invalidate queries to ensure fresh data
-            queryClient.invalidateQueries(['entries', { id: data.entry_id }]);
+            // Ensure the UI updates immediately
+            queryClient.invalidateQueries(['entries']);
             break;
 
           case 'entry.failed':

@@ -1,100 +1,112 @@
 import { useState, useEffect } from 'react';
 import { Plus, Star, Calendar, Hash } from 'lucide-react';
-import { useQuery } from '@tanstack/react-query';
+import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { journalAPI } from '../api/client';
 import SearchFilters from './SearchFilters';
 import VectorSearch from './VectorSearch';
 import HybridSearch from './HybridSearch';
 
-function Sidebar({ activeTab, onTabChange, tabs, onSearch, searchParams }) {
+function Sidebar({ activeTab, onTabChange, tabs, onSearch, searchParams, isCollapsed }) {
   const [isCreatingEntry, setIsCreatingEntry] = useState(false);
   const [newEntryContent, setNewEntryContent] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState('');
+  const queryClient = useQueryClient();
 
   const { data: collections = [] } = useQuery({
     queryKey: ['collections'],
     queryFn: journalAPI.getCollections,
   });
 
-  const handleCreateEntry = async () => {
-    if (!newEntryContent.trim()) return;
-    
-    setIsSubmitting(true);
-    setError('');
-    
-    try {
-      await journalAPI.createEntry(newEntryContent);
+  const createEntryMutation = useMutation({
+    mutationFn: (content) => journalAPI.createEntry(content),
+    onSuccess: (newEntry) => {
+      // The SSE event will handle adding to cache, but we can do optimistic update
       setNewEntryContent('');
       setIsCreatingEntry(false);
-      // Trigger refresh
-      onSearch({ ...searchParams });
-    } catch (error) {
+      
+      // If SSE is not connected, invalidate queries
+      queryClient.invalidateQueries(['entries']);
+    },
+    onError: (error) => {
       console.error('Failed to create entry:', error);
-      setError('Failed to create entry. Please try again.');
-    } finally {
-      setIsSubmitting(false);
     }
+  });
+
+  const handleCreateEntry = () => {
+    if (!newEntryContent.trim()) return;
+    createEntryMutation.mutate(newEntryContent);
   };
 
   return (
     <div className="h-full flex flex-col">
       {/* Header */}
-      <div className="p-4 border-b border-gray-200 dark:border-gray-700">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Journal</h1>
+      <div className={`${isCollapsed ? 'px-2' : 'p-4'} border-b border-gray-200 dark:border-gray-700`}>
         <button
           onClick={() => setIsCreatingEntry(true)}
-          className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          className={`${
+            isCollapsed 
+              ? 'w-12 h-12 flex items-center justify-center' 
+              : 'w-full flex items-center justify-center gap-2 px-4 py-2'
+          } bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors`}
+          title={isCollapsed ? 'New Entry' : undefined}
         >
           <Plus className="w-4 h-4" />
-          New Entry
+          {!isCollapsed && <span>New Entry</span>}
         </button>
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-gray-200 dark:border-gray-700">
+      <div className={`flex ${isCollapsed ? 'flex-col' : ''} border-b border-gray-200 dark:border-gray-700`}>
         {tabs.map((tab) => {
           const Icon = tab.icon;
           return (
             <button
               key={tab.id}
               onClick={() => onTabChange(tab.id)}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 text-sm font-medium transition-colors ${
+              className={`${
+                isCollapsed 
+                  ? 'w-full flex items-center justify-center p-3' 
+                  : 'flex-1 flex items-center justify-center gap-2 px-4 py-3'
+              } text-sm font-medium transition-colors ${
                 activeTab === tab.id
-                  ? 'text-blue-600 border-b-2 border-blue-600 bg-blue-50 dark:bg-blue-900/20'
+                  ? isCollapsed 
+                    ? 'text-blue-600 bg-blue-50 dark:bg-blue-900/20 border-r-2 border-blue-600'
+                    : 'text-blue-600 border-b-2 border-blue-600 bg-blue-50 dark:bg-blue-900/20'
                   : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'
               }`}
+              title={isCollapsed ? tab.name : undefined}
             >
               <Icon className="w-4 h-4" />
-              <span className="hidden lg:inline">{tab.name}</span>
+              {!isCollapsed && <span className="hidden lg:inline">{tab.name}</span>}
             </button>
           );
         })}
       </div>
 
       {/* Tab Content */}
-      <div className="flex-1 overflow-y-auto p-4">
-        {activeTab === 'classic' && (
-          <SearchFilters
-            collections={collections}
-            onSearch={onSearch}
-            searchParams={searchParams}
-          />
-        )}
-        {activeTab === 'vector' && (
-          <VectorSearch
-            onSearch={onSearch}
-            searchParams={searchParams}
-          />
-        )}
-        {activeTab === 'hybrid' && (
-          <HybridSearch
-            collections={collections}
-            onSearch={onSearch}
-            searchParams={searchParams}
-          />
-        )}
-      </div>
+      {!isCollapsed && (
+        <div className="flex-1 overflow-y-auto p-4">
+          {activeTab === 'classic' && (
+            <SearchFilters
+              collections={collections}
+              onSearch={onSearch}
+              searchParams={searchParams}
+            />
+          )}
+          {activeTab === 'vector' && (
+            <VectorSearch
+              onSearch={onSearch}
+              searchParams={searchParams}
+            />
+          )}
+          {activeTab === 'hybrid' && (
+            <HybridSearch
+              collections={collections}
+              onSearch={onSearch}
+              searchParams={searchParams}
+            />
+          )}
+        </div>
+      )}
 
       {/* New Entry Modal */}
       {isCreatingEntry && (
@@ -110,26 +122,26 @@ function Sidebar({ activeTab, onTabChange, tabs, onSearch, searchParams }) {
               placeholder="Write your journal entry here..."
               autoFocus
             />
-            {error && (
+            {createEntryMutation.isError && (
               <div className="mt-2 text-red-600 dark:text-red-400 text-sm">
-                {error}
+                Failed to create entry. Please try again.
               </div>
             )}
             <div className="flex gap-3 mt-4">
               <button
                 onClick={handleCreateEntry}
-                disabled={isSubmitting || !newEntryContent.trim()}
+                disabled={createEntryMutation.isPending || !newEntryContent.trim()}
                 className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                {isSubmitting ? 'Creating...' : 'Create Entry'}
+                {createEntryMutation.isPending ? 'Creating...' : 'Create Entry'}
               </button>
               <button
                 onClick={() => {
                   setIsCreatingEntry(false);
                   setNewEntryContent('');
-                  setError('');
+                  createEntryMutation.reset();
                 }}
-                disabled={isSubmitting}
+                disabled={createEntryMutation.isPending}
                 className="flex-1 px-4 py-2 bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors disabled:opacity-50"
               >
                 Cancel

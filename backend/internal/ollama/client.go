@@ -18,11 +18,11 @@ func NewClient(baseURL string) *Client {
 	if baseURL == "" {
 		baseURL = "http://localhost:11434"
 	}
-	
+
 	return &Client{
 		baseURL: baseURL,
 		httpClient: &http.Client{
-			Timeout: 30 * time.Second,
+			Timeout: 120 * time.Second, // Increased timeout for large content
 		},
 	}
 }
@@ -52,8 +52,8 @@ type ChatResponse struct {
 }
 
 type EmbeddingRequest struct {
-	Model  string `json:"model"`
-	Input  string `json:"input"`
+	Model string `json:"model"`
+	Input string `json:"input"`
 }
 
 type EmbeddingResponse struct {
@@ -66,7 +66,7 @@ func (c *Client) Chat(request ChatRequest) (*ChatResponse, error) {
 	if err != nil {
 		return nil, fmt.Errorf("failed to marshal request: %w", err)
 	}
-	
+
 	resp, err := c.httpClient.Post(
 		fmt.Sprintf("%s/api/chat", c.baseURL),
 		"application/json",
@@ -76,17 +76,17 @@ func (c *Client) Chat(request ChatRequest) (*ChatResponse, error) {
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}
 	defer resp.Body.Close()
-	
+
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
 		return nil, fmt.Errorf("unexpected status code %d: %s", resp.StatusCode, string(body))
 	}
-	
+
 	var chatResp ChatResponse
 	if err := json.NewDecoder(resp.Body).Decode(&chatResp); err != nil {
 		return nil, fmt.Errorf("failed to decode response: %w", err)
 	}
-	
+
 	return &chatResp, nil
 }
 
@@ -95,12 +95,12 @@ func (c *Client) CreateEmbedding(model, text string) ([]float32, error) {
 		Model: model,
 		Input: text,
 	}
-	
+
 	jsonData, err := json.Marshal(request)
 	if err != nil {
 		return nil, fmt.Errorf("failed to marshal request: %w", err)
 	}
-	
+
 	resp, err := c.httpClient.Post(
 		fmt.Sprintf("%s/api/embed", c.baseURL),
 		"application/json",
@@ -110,20 +110,20 @@ func (c *Client) CreateEmbedding(model, text string) ([]float32, error) {
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}
 	defer resp.Body.Close()
-	
+
 	if resp.StatusCode != http.StatusOK {
 		body, _ := io.ReadAll(resp.Body)
 		return nil, fmt.Errorf("unexpected status code %d: %s", resp.StatusCode, string(body))
 	}
-	
+
 	var embResp EmbeddingResponse
 	if err := json.NewDecoder(resp.Body).Decode(&embResp); err != nil {
 		return nil, fmt.Errorf("failed to decode response: %w", err)
 	}
-	
+
 	if len(embResp.Embeddings) == 0 {
 		return nil, fmt.Errorf("no embeddings returned")
 	}
-	
+
 	return embResp.Embeddings[0], nil
 }

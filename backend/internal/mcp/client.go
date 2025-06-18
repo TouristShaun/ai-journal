@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"net/http"
 	"time"
-	
+
 	"github.com/journal/internal/models"
 )
 
@@ -20,7 +20,7 @@ func NewClient(baseURL string) *Client {
 	if baseURL == "" {
 		baseURL = "http://localhost:8081"
 	}
-	
+
 	return &Client{
 		baseURL: baseURL,
 		httpClient: &http.Client{
@@ -39,34 +39,34 @@ func (c *Client) FetchURL(ctx context.Context, url, reason string) (*models.Extr
 		URL:    url,
 		Reason: reason,
 	}
-	
+
 	jsonData, err := json.Marshal(request)
 	if err != nil {
 		return nil, fmt.Errorf("failed to marshal request: %w", err)
 	}
-	
+
 	req, err := http.NewRequestWithContext(ctx, "POST", c.baseURL+"/fetch", bytes.NewBuffer(jsonData))
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}
-	
+
 	req.Header.Set("Content-Type", "application/json")
-	
+
 	resp, err := c.httpClient.Do(req)
 	if err != nil {
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}
 	defer resp.Body.Close()
-	
+
 	if resp.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("unexpected status code: %d", resp.StatusCode)
 	}
-	
+
 	var result models.ExtractedURL
 	if err := json.NewDecoder(resp.Body).Decode(&result); err != nil {
 		return nil, fmt.Errorf("failed to decode response: %w", err)
 	}
-	
+
 	return &result, nil
 }
 
@@ -81,7 +81,7 @@ func (c *Client) FetchURLsForEntry(ctx context.Context, entry *models.JournalEnt
 					if r, rOk := urlData["reason"].(string); rOk {
 						reason = r
 					}
-					
+
 					// Fetch the URL
 					extracted, err := c.FetchURL(ctx, url, reason)
 					if err != nil {
@@ -94,10 +94,10 @@ func (c *Client) FetchURLsForEntry(ctx context.Context, entry *models.JournalEnt
 						}
 						continue
 					}
-					
+
 					// Add to extracted URLs
 					entry.ProcessedData.ExtractedURLs = append(entry.ProcessedData.ExtractedURLs, *extracted)
-					
+
 					// Update metadata
 					entry.ProcessedData.Metadata[key] = map[string]string{
 						"url":    url,
@@ -108,6 +108,6 @@ func (c *Client) FetchURLsForEntry(ctx context.Context, entry *models.JournalEnt
 			}
 		}
 	}
-	
+
 	return nil
 }

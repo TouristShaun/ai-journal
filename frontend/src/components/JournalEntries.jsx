@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { journalAPI } from '../api/client';
 import EntryCard from './EntryCard';
 import CollectionView from './CollectionView';
+import ExportButton from './ExportButton';
 import { Loader2 } from 'lucide-react';
 
 function JournalEntries({ searchParams, onSelectEntry, selectedEntry }) {
@@ -57,8 +58,18 @@ function JournalEntries({ searchParams, onSelectEntry, selectedEntry }) {
 
   // Default card view (newest first)
   return (
-    <div className="p-4 space-y-3">
-      {entries.map((entry) => (
+    <div className="h-full flex flex-col">
+      {/* Header with export button */}
+      <div className="p-4 border-b border-gray-200 dark:border-gray-700 flex items-center justify-between">
+        <h2 className="text-lg font-semibold text-gray-900 dark:text-white">
+          {entries.length} {entries.length === 1 ? 'Entry' : 'Entries'}
+        </h2>
+        <ExportButton searchParams={searchParams} />
+      </div>
+      
+      {/* Entries list */}
+      <div className="flex-1 overflow-y-auto p-4 space-y-3">
+        {entries.map((entry) => (
         <EntryCard
           key={entry.id}
           entry={entry}
@@ -66,6 +77,7 @@ function JournalEntries({ searchParams, onSelectEntry, selectedEntry }) {
           onClick={() => onSelectEntry(entry)}
         />
       ))}
+      </div>
     </div>
   );
 }

@@ -1,15 +1,18 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { journalAPI } from '../api/client';
 import { format } from 'date-fns';
-import { X, Star, Edit2, Save, Tag, Link2, Brain, Calendar, Hash } from 'lucide-react';
+import { X, Star, Edit2, Save, Tag, Link2, Brain, Calendar, Hash, Maximize2, Minimize2, ChevronDown, ChevronUp } from 'lucide-react';
 import ProcessingTracker from './ProcessingTracker';
 import ProcessingLogsModal from './ProcessingLogsModal';
+import { useKeyboardShortcuts, SHORTCUTS } from '../hooks/useKeyboardShortcuts';
 
 function EntryEditor({ entry, onClose, onUpdate }) {
   const [isEditing, setIsEditing] = useState(false);
   const [editContent, setEditContent] = useState(entry.content);
   const [showLogsModal, setShowLogsModal] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [showProcessingTracker, setShowProcessingTracker] = useState(true);
   const queryClient = useQueryClient();
 
   const { data: collections = [] } = useQuery({
@@ -24,6 +27,10 @@ function EntryEditor({ entry, onClose, onUpdate }) {
       setIsEditing(false);
       onUpdate();
     },
+    onError: (error) => {
+      console.error('Failed to update entry:', error);
+      alert(`Failed to update entry: ${error.message || 'Unknown error occurred'}`);
+    },
   });
 
   const toggleFavoriteMutation = useMutation({
@@ -31,6 +38,10 @@ function EntryEditor({ entry, onClose, onUpdate }) {
     onSuccess: () => {
       queryClient.invalidateQueries(['entries']);
       onUpdate();
+    },
+    onError: (error) => {
+      console.error('Failed to toggle favorite:', error);
+      alert(`Failed to toggle favorite: ${error.message || 'Unknown error occurred'}`);
     },
   });
 
@@ -52,8 +63,47 @@ function EntryEditor({ entry, onClose, onUpdate }) {
     }
   };
 
+  const toggleFullscreen = () => {
+    setIsFullscreen(!isFullscreen);
+  };
+
+  // Keyboard shortcuts
+  useKeyboardShortcuts([
+    {
+      ...SHORTCUTS.ESCAPE,
+      action: () => {
+        if (isFullscreen) {
+          setIsFullscreen(false);
+        } else if (isEditing) {
+          setIsEditing(false);
+          setEditContent(entry.content);
+        } else {
+          onClose();
+        }
+      },
+    },
+    {
+      ...SHORTCUTS.EDIT,
+      action: () => !isEditing && setIsEditing(true),
+    },
+    {
+      ...SHORTCUTS.SAVE,
+      action: () => isEditing && handleSave(),
+      allowInInput: true,
+    },
+    {
+      key: 'Enter',
+      ctrlKey: true,
+      action: () => toggleFullscreen(),
+    },
+  ]);
+
   return (
-    <div className="h-full flex flex-col">
+    <div className={`flex flex-col transition-all duration-300 ${
+      isFullscreen 
+        ? 'fixed inset-0 z-50 bg-white dark:bg-gray-900' 
+        : 'h-full'
+    }`}>
       {/* Header */}
       <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700">
         <div className="flex items-center gap-4">
@@ -76,6 +126,17 @@ function EntryEditor({ entry, onClose, onUpdate }) {
           </div>
         </div>
         <div className="flex items-center gap-2">
+          <button
+            onClick={toggleFullscreen}
+            className="p-2 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded-lg transition-colors"
+            title={isFullscreen ? "Exit fullscreen (Esc)" : "Enter fullscreen (⌘+Enter)"}
+          >
+            {isFullscreen ? (
+              <Minimize2 className="w-5 h-5" />
+            ) : (
+              <Maximize2 className="w-5 h-5" />
+            )}
+          </button>
           <button
             onClick={handleToggleFavorite}
             disabled={toggleFavoriteMutation.isPending}
@@ -110,9 +171,13 @@ function EntryEditor({ entry, onClose, onUpdate }) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto p-6">
+      <div className={`flex-1 overflow-y-auto ${
+        isFullscreen 
+          ? 'p-8 max-w-4xl mx-auto w-full' 
+          : 'p-6'
+      }`}>
         {/* Processing Tracker */}
-        {entry.processing_stage && entry.processing_stage !== 'completed' && (
+        {(showProcessingTracker || (entry.processing_stage && entry.processing_stage !== 'completed')) && (
           <ProcessingTracker 
             entry={entry} 
             onViewLogs={() => setShowLogsModal(true)}
@@ -123,11 +188,15 @@ function EntryEditor({ entry, onClose, onUpdate }) {
           <textarea
             value={editContent}
             onChange={(e) => setEditContent(e.target.value)}
-            className="w-full h-64 p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            className={`w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-900 text-gray-900 dark:text-white resize-none focus:ring-2 focus:ring-blue-500 focus:border-transparent ${
+              isFullscreen ? 'h-96' : 'h-64'
+            }`}
             autoFocus
           />
         ) : (
-          <div className="prose dark:prose-invert max-w-none">
+          <div className={`prose dark:prose-invert max-w-none ${
+            isFullscreen ? 'prose-lg' : ''
+          }`}>
             <p className="whitespace-pre-wrap text-gray-600 dark:text-gray-400">{entry.content}</p>
           </div>
         )}
@@ -135,10 +204,17 @@ function EntryEditor({ entry, onClose, onUpdate }) {
         {/* Metadata */}
         <div className="mt-8 space-y-6">
           {/* AI Analysis */}
-          <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4">
+          <div 
+            className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+            onClick={() => setShowProcessingTracker(!showProcessingTracker)}
+          >
             <h3 className="font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
               <Brain className="w-5 h-5" />
               AI Analysis
+              <span className="text-xs text-gray-500 dark:text-gray-400 ml-auto flex items-center gap-1">
+                {showProcessingTracker ? 'Hide processing details' : 'Show processing details'}
+                {showProcessingTracker ? <ChevronUp className="w-3 h-3" /> : <ChevronDown className="w-3 h-3" />}
+              </span>
             </h3>
             
             <div className="space-y-3">
@@ -246,17 +322,22 @@ function EntryEditor({ entry, onClose, onUpdate }) {
                     <input
                       type="checkbox"
                       checked={isInCollection}
-                      onChange={(e) => {
-                        if (e.target.checked) {
-                          journalAPI.addToCollection(entry.id, collection.id).then(() => {
+                      onChange={async (e) => {
+                        try {
+                          if (e.target.checked) {
+                            await journalAPI.addToCollection(entry.id, collection.id);
                             queryClient.invalidateQueries(['entries']);
                             onUpdate();
-                          });
-                        } else {
-                          journalAPI.removeFromCollection(entry.id, collection.id).then(() => {
+                          } else {
+                            await journalAPI.removeFromCollection(entry.id, collection.id);
                             queryClient.invalidateQueries(['entries']);
                             onUpdate();
-                          });
+                          }
+                        } catch (error) {
+                          console.error('Failed to update collection:', error);
+                          alert(`Failed to ${e.target.checked ? 'add to' : 'remove from'} collection: ${error.message || 'Unknown error occurred'}`);
+                          // Revert checkbox state on error
+                          e.target.checked = !e.target.checked;
                         }
                       }}
                       className="w-4 h-4 text-blue-600 rounded focus:ring-blue-500"

@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Evaluation Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        h2 {
+            color: #555;
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .metric-card {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 20px;
+        }
+        .metric-card h3 {
+            margin-top: 0;
+            color: #495057;
+            font-size: 18px;
+        }
+        .metric-value {
+            font-size: 36px;
+            font-weight: bold;
+            color: #007bff;
+            margin: 10px 0;
+        }
+        .metric-label {
+            color: #6c757d;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #e9ecef;
+        }
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        tr:hover {
+            background: #f8f9fa;
+        }
+        .status-good {
+            color: #28a745;
+        }
+        .status-warning {
+            color: #ffc107;
+        }
+        .status-poor {
+            color: #dc3545;
+        }
+        .chart-container {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        .bar {
+            display: inline-block;
+            height: 20px;
+            background: #007bff;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Evaluation Report</h1>
+        <p class="timestamp">Generated: 2025-06-17 00:11:27.687593 -0400 EDT m=&#43;12.200901543</p>
+        
+        <h2>Summary</h2>
+        <div class="metrics-grid">
+            
+            <div class="metric-card">
+                <h3>classic Search</h3>
+                <div class="metric-value status-poor">20.71%</div>
+                <div class="metric-label">F1 Score</div>
+                <div style="margin-top: 15px;">
+                    <div>Precision: 0.124</div>
+                    <div>Recall: 0.619</div>
+                    <div>Avg Latency: 0.5ms</div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>hybrid Search</h3>
+                <div class="metric-value status-poor">5.00%</div>
+                <div class="metric-label">F1 Score</div>
+                <div style="margin-top: 15px;">
+                    <div>Precision: 0.029</div>
+                    <div>Recall: 0.200</div>
+                    <div>Avg Latency: 20.0ms</div>
+                </div>
+            </div>
+            
+            <div class="metric-card">
+                <h3>vector Search</h3>
+                <div class="metric-value status-poor">0.00%</div>
+                <div class="metric-label">F1 Score</div>
+                <div style="margin-top: 15px;">
+                    <div>Precision: 0.000</div>
+                    <div>Recall: 0.000</div>
+                    <div>Avg Latency: 0.0ms</div>
+                </div>
+            </div>
+            
+        </div>
+
+        <h2>Detailed Metrics</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Search Mode</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>F1 Score</th>
+                    <th>NDCG</th>
+                    <th>MRR</th>
+                    <th>Avg Latency</th>
+                    <th>Test Cases</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                <tr>
+                    <td><strong>classic</strong></td>
+                    <td>0.124</td>
+                    <td>0.619</td>
+                    <td>0.207</td>
+                    <td>0.193</td>
+                    <td>0.343</td>
+                    <td>0.5ms</td>
+                    <td>34</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>hybrid</strong></td>
+                    <td>0.029</td>
+                    <td>0.200</td>
+                    <td>0.050</td>
+                    <td>0.192</td>
+                    <td>1.000</td>
+                    <td>20.0ms</td>
+                    <td>3</td>
+                </tr>
+                
+                <tr>
+                    <td><strong>vector</strong></td>
+                    <td>0.000</td>
+                    <td>0.000</td>
+                    <td>0.000</td>
+                    <td>0.000</td>
+                    <td>0.000</td>
+                    <td>0.0ms</td>
+                    <td>9</td>
+                </tr>
+                
+            </tbody>
+        </table>
+
+        <h2>Performance Distribution</h2>
+        <div class="chart-container">
+            
+            <div style="margin: 10px 0;">
+                <strong>classic:</strong>
+                <span class="bar" style="width: 62px;"></span>
+                <span>20.7%</span>
+            </div>
+            
+            <div style="margin: 10px 0;">
+                <strong>hybrid:</strong>
+                <span class="bar" style="width: 14px;"></span>
+                <span>5.0%</span>
+            </div>
+            
+            <div style="margin: 10px 0;">
+                <strong>vector:</strong>
+                <span class="bar" style="width: 0px;"></span>
+                <span>0.0%</span>
+            </div>
+            
+        </div>
+
+        <h2>Test Case Results</h2>
+        
+        <h3>classic Search</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test ID</th>
+                    <th>Query</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>Latency</th>
+                    <th>Expected</th>
+                    <th>Found</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+                <tr>
+                    <td>classic_keyword_2</td>
+                    <td>culture</td>
+                    <td>0.08</td>
+                    <td>1.00</td>
+                    <td>1ms</td>
+                    <td>1</td>
+                    <td>13</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_keyword_3</td>
+                    <td>efficiency</td>
+                    <td>0.08</td>
+                    <td>1.00</td>
+                    <td>0ms</td>
+                    <td>1</td>
+                    <td>12</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_keyword_4</td>
+                    <td>connection</td>
+                    <td>0.11</td>
+                    <td>1.00</td>
+                    <td>0ms</td>
+                    <td>1</td>
+                    <td>9</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_topic_travel</td>
+                    <td>travel</td>
+                    <td>0.25</td>
+                    <td>0.80</td>
+                    <td>1ms</td>
+                    <td>5</td>
+                    <td>16</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_topic_career</td>
+                    <td>career</td>
+                    <td>0.18</td>
+                    <td>0.60</td>
+                    <td>0ms</td>
+                    <td>5</td>
+                    <td>17</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_topic_mindfulness</td>
+                    <td>mindfulness</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0ms</td>
+                    <td>5</td>
+                    <td>18</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_topic_learning</td>
+                    <td>learning</td>
+                    <td>0.02</td>
+                    <td>0.20</td>
+                    <td>1ms</td>
+                    <td>5</td>
+                    <td>50</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_topic_health</td>
+                    <td>health</td>
+                    <td>0.14</td>
+                    <td>0.60</td>
+                    <td>1ms</td>
+                    <td>5</td>
+                    <td>21</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_topic_creativity</td>
+                    <td>creativity</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>0ms</td>
+                    <td>5</td>
+                    <td>16</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>classic_topic_hobbies</td>
+                    <td>hobbies</td>
+                    <td>0.21</td>
+                    <td>0.60</td>
+                    <td>0ms</td>
+                    <td>5</td>
+                    <td>14</td>
+                </tr>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+            </tbody>
+        </table>
+        
+        <h3>hybrid Search</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test ID</th>
+                    <th>Query</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>Latency</th>
+                    <th>Expected</th>
+                    <th>Found</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+                <tr>
+                    <td>hybrid_keyword_semantic_2</td>
+                    <td>culture</td>
+                    <td>0.03</td>
+                    <td>0.20</td>
+                    <td>20ms</td>
+                    <td>5</td>
+                    <td>35</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>hybrid_natural_0</td>
+                    <td>How can I improve my productivity while working fr...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>23ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>hybrid_natural_1</td>
+                    <td>Tell me about recent technology innovations</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>22ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+        
+        <h3>vector Search</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Test ID</th>
+                    <th>Query</th>
+                    <th>Precision</th>
+                    <th>Recall</th>
+                    <th>Latency</th>
+                    <th>Expected</th>
+                    <th>Found</th>
+                </tr>
+            </thead>
+            <tbody>
+                
+                
+                <tr>
+                    <td>vector_similar_0</td>
+                    <td>Entry 2: reflection and Microsoft
+
+Reflecting on m...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>54ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_similar_1</td>
+                    <td>Entry 3: travel and Google
+
+Reflecting on my exper...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>30ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_similar_2</td>
+                    <td>Entry 1: finance and Jane Smith
+
+Visited finance a...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>26ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_explore_0</td>
+                    <td>Entry 1: finance and Jane Smith
+
+Visited finance a...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>24ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_explore_1</td>
+                    <td>Entry 2: reflection and Microsoft
+
+Reflecting on m...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>20ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_explore_2</td>
+                    <td>Entry 3: travel and Google
+
+Reflecting on my exper...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>20ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_contrast_0</td>
+                    <td>Entry 1: finance and Jane Smith
+
+Visited finance a...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>20ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_contrast_1</td>
+                    <td>Entry 2: reflection and Microsoft
+
+Reflecting on m...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>19ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+                
+                <tr>
+                    <td>vector_contrast_2</td>
+                    <td>Entry 3: travel and Google
+
+Reflecting on my exper...</td>
+                    <td>0.00</td>
+                    <td>0.00</td>
+                    <td>18ms</td>
+                    <td>5</td>
+                    <td>22</td>
+                </tr>
+                
+                
+            </tbody>
+        </table>
+        
+    </div>
+</body>
+</html>

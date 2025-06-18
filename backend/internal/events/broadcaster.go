@@ -12,17 +12,20 @@ import (
 type EventType string
 
 const (
+	EventEntryCreated    EventType = "entry.created"
 	EventEntryProcessing EventType = "entry.processing"
 	EventEntryProcessed  EventType = "entry.processed"
 	EventEntryFailed     EventType = "entry.failed"
+	EventEntryUpdated    EventType = "entry.updated"
+	EventEntryDeleted    EventType = "entry.deleted"
 )
 
 // Event represents a server-sent event
 type Event struct {
-	Type      EventType      `json:"type"`
-	EntryID   string         `json:"entry_id"`
-	Data      interface{}    `json:"data"`
-	Timestamp time.Time      `json:"timestamp"`
+	Type      string      `json:"type"`
+	EntryID   string      `json:"entry_id,omitempty"`
+	Data      interface{} `json:"data"`
+	Timestamp time.Time   `json:"timestamp"`
 }
 
 // Client represents a connected SSE client
@@ -107,12 +110,28 @@ func (b *Broadcaster) UnregisterClient(client *Client) {
 // SendEvent broadcasts an event to all connected clients
 func (b *Broadcaster) SendEvent(eventType EventType, entryID string, data interface{}) {
 	event := &Event{
-		Type:      eventType,
+		Type:      string(eventType),
 		EntryID:   entryID,
 		Data:      data,
 		Timestamp: time.Now(),
 	}
-	
+
+	select {
+	case b.broadcast <- event:
+		// Event queued for broadcast
+	default:
+		log.Printf("Event broadcast channel full, dropping event")
+	}
+}
+
+// Broadcast sends a generic event to all connected clients
+func (b *Broadcaster) Broadcast(eventType string, data interface{}) {
+	event := &Event{
+		Type:      eventType,
+		Data:      data,
+		Timestamp: time.Now(),
+	}
+
 	select {
 	case b.broadcast <- event:
 		// Event queued for broadcast
@@ -127,6 +146,6 @@ func FormatSSE(event *Event) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	
+
 	return fmt.Sprintf("data: %s\n\n", string(data)), nil
 }

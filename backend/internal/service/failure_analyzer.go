@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"sort"
 	"strings"
-	
+
 	"github.com/journal/internal/logger"
 	"github.com/journal/internal/models"
 	"github.com/journal/internal/ollama"
@@ -50,7 +50,7 @@ func (fa *FailureAnalyzer) AnalyzeFailure(ctx context.Context, entryID string, e
 	if err != nil {
 		return nil, fmt.Errorf("failed to get processing logs: %w", err)
 	}
-	
+
 	// Filter error logs
 	var errorLogs []models.ProcessingLog
 	var lastStage models.ProcessingStage
@@ -60,7 +60,7 @@ func (fa *FailureAnalyzer) AnalyzeFailure(ctx context.Context, entryID string, e
 		}
 		lastStage = log.Stage
 	}
-	
+
 	// Common failure patterns
 	commonFailures := map[string][]FailureCause{
 		"analyzing": {
@@ -68,7 +68,7 @@ func (fa *FailureAnalyzer) AnalyzeFailure(ctx context.Context, entryID string, e
 				Cause:       "Ollama service unavailable",
 				Description: "The Ollama AI service is not running or not accessible",
 				Probability: 0.7,
-				Solution:    "Ensure Ollama is running with 'ollama serve' and the qwen2.5:7b model is installed",
+				Solution:    "Ensure Ollama is running with 'ollama serve' and the qwen3:8b model is installed",
 			},
 			{
 				Cause:       "Content too large",
@@ -118,16 +118,16 @@ func (fa *FailureAnalyzer) AnalyzeFailure(ctx context.Context, entryID string, e
 			},
 		},
 	}
-	
+
 	// Build context for AI analysis
 	logsContext := fa.buildLogsContext(logs, errorLogs)
-	
+
 	// Get likely causes based on the failed stage
 	var likelyCauses []FailureCause
 	if causes, exists := commonFailures[string(lastStage)]; exists {
 		likelyCauses = causes
 	}
-	
+
 	// If we have error logs, use AI to refine the analysis
 	if len(errorLogs) > 0 && entry != nil {
 		refinedAnalysis, err := fa.aiAnalyzeError(ctx, entry.Content, logsContext, errorLogs)
@@ -136,18 +136,18 @@ func (fa *FailureAnalyzer) AnalyzeFailure(ctx context.Context, entryID string, e
 			likelyCauses = fa.mergeAnalyses(likelyCauses, refinedAnalysis)
 		}
 	}
-	
+
 	// Sort by probability
 	sort.Slice(likelyCauses, func(i, j int) bool {
 		return likelyCauses[i].Probability > likelyCauses[j].Probability
 	})
-	
+
 	// Take top 80% probable causes
 	topCauses := fa.getTop80PercentCauses(likelyCauses)
-	
+
 	// Generate recommendation
 	recommendation := fa.generateRecommendation(topCauses, lastStage)
-	
+
 	// Get the primary error message
 	errorMsg := ""
 	if entry != nil && entry.ProcessingError != nil {
@@ -155,7 +155,7 @@ func (fa *FailureAnalyzer) AnalyzeFailure(ctx context.Context, entryID string, e
 	} else if len(errorLogs) > 0 {
 		errorMsg = errorLogs[0].Message
 	}
-	
+
 	return &FailureAnalysis{
 		EntryID:        entryID,
 		FailedStage:    string(lastStage),
@@ -168,16 +168,16 @@ func (fa *FailureAnalyzer) AnalyzeFailure(ctx context.Context, entryID string, e
 // buildLogsContext creates a summary of logs for AI analysis
 func (fa *FailureAnalyzer) buildLogsContext(logs []models.ProcessingLog, errorLogs []models.ProcessingLog) string {
 	var context strings.Builder
-	
+
 	context.WriteString("Processing Timeline:\n")
 	for _, log := range logs {
-		context.WriteString(fmt.Sprintf("[%s] %s - %s: %s\n", 
-			log.CreatedAt.Format("15:04:05"), 
-			log.Stage, 
-			log.Level, 
+		context.WriteString(fmt.Sprintf("[%s] %s - %s: %s\n",
+			log.CreatedAt.Format("15:04:05"),
+			log.Stage,
+			log.Level,
 			log.Message))
 	}
-	
+
 	if len(errorLogs) > 0 {
 		context.WriteString("\nError Details:\n")
 		for _, errLog := range errorLogs {
@@ -188,7 +188,7 @@ func (fa *FailureAnalyzer) buildLogsContext(logs []models.ProcessingLog, errorLo
 			}
 		}
 	}
-	
+
 	return context.String()
 }
 
@@ -196,6 +196,20 @@ func (fa *FailureAnalyzer) buildLogsContext(logs []models.ProcessingLog, errorLo
 func (fa *FailureAnalyzer) aiAnalyzeError(ctx context.Context, content string, logsContext string, errorLogs []models.ProcessingLog) ([]FailureCause, error) {
 	prompt := fmt.Sprintf(`Analyze this journal processing failure and identify likely causes.
 
+Example Analysis:
+Journal Entry: "Today I learned about..."
+Processing Logs: 
+- ERROR: Failed to fetch URL: connection timeout after 30s
+- INFO: Processing stage: fetching_urls
+- ERROR: MCP agent request failed: Post "http://localhost:8081": dial tcp [::1]:8081: connect: connection refused
+
+Expected Response:
+Causes:
+1. Cause: "MCP agent service not running" - Probability: 0.9 - Solution: "Start the MCP agent with 'make dev' or check if port 8081 is already in use"
+2. Cause: "Network connectivity issue" - Probability: 0.7 - Solution: "Check network connection and firewall settings for localhost connections"
+3. Cause: "URL fetch timeout too short" - Probability: 0.5 - Solution: "Increase timeout in MCP agent configuration or check if target URL is slow"
+
+Now analyze this failure:
 Journal Entry (first 500 chars):
 %s
 
@@ -204,15 +218,21 @@ Processing Logs:
 
 Based on the error patterns and logs, identify the most likely causes of failure. Consider:
 1. Service availability issues (Ollama, MCP agent)
-2. Content-related issues (format, size, encoding)
+2. Content-related issues (format, size, encoding, special characters)
 3. Network or timeout issues
-4. Configuration problems
-5. Resource constraints
+4. Configuration problems (wrong ports, missing environment variables)
+5. Resource constraints (memory, CPU, disk space)
 
-Provide up to 3 most likely causes with solutions.`, 
-		truncateString(content, 500), 
+Important:
+- Look for specific error messages in the logs
+- Consider the processing stage where failure occurred
+- Match error patterns to common issues
+- Provide actionable solutions that users can implement
+
+Provide up to 3 most likely causes with solutions.`,
+		truncateString(content, 500),
 		logsContext)
-	
+
 	// Use a simpler response format for better reliability
 	type AIResponse struct {
 		Causes []struct {
@@ -221,17 +241,17 @@ Provide up to 3 most likely causes with solutions.`,
 			Solution    string  `json:"solution"`
 		} `json:"causes"`
 	}
-	
+
 	responseJSON, err := fa.processor.ProcessWithSchema(ctx, prompt, AIResponse{})
 	if err != nil {
 		return nil, err
 	}
-	
+
 	var response AIResponse
 	if err := json.Unmarshal([]byte(responseJSON), &response); err != nil {
 		return nil, err
 	}
-	
+
 	// Convert to FailureCause slice
 	var causes []FailureCause
 	for _, c := range response.Causes {
@@ -242,7 +262,7 @@ Provide up to 3 most likely causes with solutions.`,
 			Solution:    c.Solution,
 		})
 	}
-	
+
 	return causes, nil
 }
 
@@ -250,12 +270,12 @@ Provide up to 3 most likely causes with solutions.`,
 func (fa *FailureAnalyzer) mergeAnalyses(common []FailureCause, ai []FailureCause) []FailureCause {
 	// Create a map to track unique causes
 	causeMap := make(map[string]FailureCause)
-	
+
 	// Add common causes
 	for _, cause := range common {
 		causeMap[cause.Cause] = cause
 	}
-	
+
 	// Add or update with AI insights
 	for _, aiCause := range ai {
 		if existing, exists := causeMap[aiCause.Cause]; exists {
@@ -266,13 +286,13 @@ func (fa *FailureAnalyzer) mergeAnalyses(common []FailureCause, ai []FailureCaus
 			causeMap[aiCause.Cause] = aiCause
 		}
 	}
-	
+
 	// Convert back to slice
 	var merged []FailureCause
 	for _, cause := range causeMap {
 		merged = append(merged, cause)
 	}
-	
+
 	return merged
 }
 
@@ -281,24 +301,24 @@ func (fa *FailureAnalyzer) getTop80PercentCauses(causes []FailureCause) []Failur
 	if len(causes) == 0 {
 		return causes
 	}
-	
+
 	var result []FailureCause
 	cumulativeProbability := 0.0
-	
+
 	for _, cause := range causes {
 		result = append(result, cause)
 		cumulativeProbability += cause.Probability
-		
+
 		if cumulativeProbability >= 0.8 {
 			break
 		}
 	}
-	
+
 	// Always include at least one cause
 	if len(result) == 0 && len(causes) > 0 {
 		result = []FailureCause{causes[0]}
 	}
-	
+
 	return result
 }
 
@@ -307,14 +327,14 @@ func (fa *FailureAnalyzer) generateRecommendation(causes []FailureCause, stage m
 	if len(causes) == 0 {
 		return "Unable to determine specific cause. Check service logs and retry the operation."
 	}
-	
+
 	// Use the most likely cause for the primary recommendation
 	primary := causes[0]
-	
-	recommendation := fmt.Sprintf("Most likely issue: %s\n\nRecommended action: %s", 
-		primary.Description, 
+
+	recommendation := fmt.Sprintf("Most likely issue: %s\n\nRecommended action: %s",
+		primary.Description,
 		primary.Solution)
-	
+
 	if len(causes) > 1 {
 		recommendation += "\n\nOther possible causes:"
 		for i, cause := range causes[1:] {
@@ -324,7 +344,7 @@ func (fa *FailureAnalyzer) generateRecommendation(causes []FailureCause, stage m
 			recommendation += fmt.Sprintf("\n- %s (%.0f%% likely)", cause.Cause, cause.Probability*100)
 		}
 	}
-	
+
 	return recommendation
 }
 

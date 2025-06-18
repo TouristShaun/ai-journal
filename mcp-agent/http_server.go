@@ -195,6 +195,16 @@ func analyzeContentWithQwen(content, reason, title, url string) (string, error) 
 
 	prompt := fmt.Sprintf(`You are analyzing web content for a journal entry. The user mentioned this URL because: "%s"
 
+Example Analysis:
+URL: https://example.com/ai-breakthrough
+Title: "Major AI Breakthrough in Natural Language Understanding"
+Reason: "Referenced this article about the new language model"
+Content: [Article about a new AI model with 175B parameters...]
+
+Expected Summary:
+"Researchers at Example Labs announced a breakthrough in natural language AI with their new 175-billion parameter model. The model demonstrates unprecedented understanding of context and nuance, achieving 95%% accuracy on complex reasoning tasks. Key innovations include a novel attention mechanism and improved training efficiency. Lead researcher Dr. Smith noted this could revolutionize conversational AI applications. The model will be open-sourced in Q2 2024, potentially accelerating AI development across the industry."
+
+Now analyze this content:
 URL: %s
 Title: %s
 
@@ -204,13 +214,14 @@ Content:
 Please provide a concise summary (200-300 words) that:
 1. Captures the main points of the content
 2. Highlights information relevant to why the user included this URL
-3. Extracts key facts, insights, or quotes
+3. Extracts key facts, insights, or quotes (use quotation marks for direct quotes)
 4. Notes any important dates, names, or statistics mentioned
+5. Identifies the content type (news article, documentation, blog post, etc.)
 
-Format your response as a clear, readable summary that will be embedded alongside the journal entry.`, reason, url, title, content)
+Format your response as a clear, readable summary that will be embedded alongside the journal entry. Focus on factual information and avoid speculation.`, reason, url, title, content)
 
 	reqBody := QwenRequest{
-		Model:  "qwen2.5:7b",
+		Model:  "qwen3:8b",
 		Prompt: prompt,
 		Stream: false,
 	}

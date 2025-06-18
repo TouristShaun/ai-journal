@@ -3,7 +3,7 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	
+
 	"github.com/journal/internal/service"
 )
 
@@ -25,11 +25,11 @@ func (h *JournalHandlers) CreateEntry(params json.RawMessage) (interface{}, erro
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.Content == "" {
 		return nil, fmt.Errorf("content cannot be empty")
 	}
-	
+
 	return h.service.CreateEntry(p.Content)
 }
 
@@ -44,11 +44,11 @@ func (h *JournalHandlers) UpdateEntry(params json.RawMessage) (interface{}, erro
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.ID == "" || p.Content == "" {
 		return nil, fmt.Errorf("id and content are required")
 	}
-	
+
 	return h.service.UpdateEntry(p.ID, p.Content)
 }
 
@@ -62,11 +62,11 @@ func (h *JournalHandlers) GetEntry(params json.RawMessage) (interface{}, error) 
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.ID == "" {
 		return nil, fmt.Errorf("id is required")
 	}
-	
+
 	return h.service.GetEntry(p.ID)
 }
 
@@ -81,7 +81,7 @@ func (h *JournalHandlers) Search(params json.RawMessage) (interface{}, error) {
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	// Set defaults
 	if p.Limit == 0 {
 		p.Limit = 50
@@ -89,7 +89,7 @@ func (h *JournalHandlers) Search(params json.RawMessage) (interface{}, error) {
 	if p.SearchType == "" {
 		p.SearchType = "classic"
 	}
-	
+
 	switch p.SearchType {
 	case "classic":
 		return h.service.ClassicSearch(p.SearchParams)
@@ -98,7 +98,7 @@ func (h *JournalHandlers) Search(params json.RawMessage) (interface{}, error) {
 			// Return empty array for empty query
 			return []interface{}{}, nil
 		}
-		return h.service.VectorSearch(p.Query, p.Limit)
+		return h.service.VectorSearch(p.SearchParams)
 	case "hybrid":
 		return h.service.HybridSearch(p.SearchParams)
 	default:
@@ -116,15 +116,15 @@ func (h *JournalHandlers) ToggleFavorite(params json.RawMessage) (interface{}, e
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.ID == "" {
 		return nil, fmt.Errorf("id is required")
 	}
-	
+
 	if err := h.service.ToggleFavorite(p.ID); err != nil {
 		return nil, err
 	}
-	
+
 	return map[string]string{"status": "success"}, nil
 }
 
@@ -139,11 +139,11 @@ func (h *JournalHandlers) CreateCollection(params json.RawMessage) (interface{},
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.Name == "" {
 		return nil, fmt.Errorf("name is required")
 	}
-	
+
 	return h.service.CreateCollection(p.Name, p.Description)
 }
 
@@ -161,15 +161,15 @@ func (h *JournalHandlers) AddToCollection(params json.RawMessage) (interface{}, 
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.EntryID == "" || p.CollectionID == "" {
 		return nil, fmt.Errorf("entry_id and collection_id are required")
 	}
-	
+
 	if err := h.service.AddToCollection(p.EntryID, p.CollectionID); err != nil {
 		return nil, err
 	}
-	
+
 	return map[string]string{"status": "success"}, nil
 }
 
@@ -178,15 +178,15 @@ func (h *JournalHandlers) RemoveFromCollection(params json.RawMessage) (interfac
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.EntryID == "" || p.CollectionID == "" {
 		return nil, fmt.Errorf("entry_id and collection_id are required")
 	}
-	
+
 	if err := h.service.RemoveFromCollection(p.EntryID, p.CollectionID); err != nil {
 		return nil, err
 	}
-	
+
 	return map[string]string{"status": "success"}, nil
 }
 
@@ -200,16 +200,16 @@ func (h *JournalHandlers) GetProcessingLogs(params json.RawMessage) (interface{}
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.EntryID == "" {
 		return nil, fmt.Errorf("entry_id is required")
 	}
-	
+
 	logs, err := h.service.GetProcessingLogs(p.EntryID)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	return logs, nil
 }
 
@@ -223,15 +223,41 @@ func (h *JournalHandlers) AnalyzeFailure(params json.RawMessage) (interface{}, e
 	if err := json.Unmarshal(params, &p); err != nil {
 		return nil, fmt.Errorf("invalid parameters: %w", err)
 	}
-	
+
 	if p.EntryID == "" {
 		return nil, fmt.Errorf("entry_id is required")
 	}
-	
+
 	analysis, err := h.service.AnalyzeFailure(p.EntryID)
 	if err != nil {
 		return nil, err
 	}
-	
+
 	return analysis, nil
+}
+
+// RetryProcessingParams for retrying failed processing
+type RetryProcessingParams struct {
+	EntryID string `json:"entry_id"`
+}
+
+func (h *JournalHandlers) RetryProcessing(params json.RawMessage) (interface{}, error) {
+	var p RetryProcessingParams
+	if err := json.Unmarshal(params, &p); err != nil {
+		return nil, fmt.Errorf("invalid parameters: %w", err)
+	}
+
+	if p.EntryID == "" {
+		return nil, fmt.Errorf("entry_id is required")
+	}
+
+	if err := h.service.RetryProcessing(p.EntryID); err != nil {
+		return nil, err
+	}
+
+	return map[string]string{"status": "processing"}, nil
+}
+
+func (h *JournalHandlers) GetSearchSuggestions(params json.RawMessage) (interface{}, error) {
+	return h.service.GetSearchSuggestions()
 }

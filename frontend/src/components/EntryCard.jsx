@@ -19,12 +19,12 @@ function EntryCard({ entry, isSelected, onClick }) {
   
   const getStageIcon = (stage) => {
     const stages = {
-      created: { icon: Package, color: 'text-gray-400' },
-      analyzing: { icon: Cpu, color: 'text-yellow-500' },
-      fetching_urls: { icon: Link, color: 'text-yellow-500' },
-      generating_embeddings: { icon: Database, color: 'text-yellow-500' },
-      completed: { icon: CheckCircle2, color: 'text-green-500' },
-      failed: { icon: AlertCircle, color: 'text-red-500' }
+      created: { icon: Package },
+      analyzing: { icon: Cpu },
+      fetching_urls: { icon: Link },
+      generating_embeddings: { icon: Database },
+      completed: { icon: CheckCircle2 },
+      failed: { icon: AlertCircle }
     };
     
     const currentStage = stages[stage] || stages.created;
@@ -32,7 +32,15 @@ function EntryCard({ entry, isSelected, onClick }) {
     
     // Active stage pulsates
     if (stage === processingStage && isProcessing) {
-      return <Icon className={`w-4 h-4 ${currentStage.color} animate-pulse`} />;
+      const activeClasses = {
+        created: 'w-4 h-4 text-gray-400 animate-pulse',
+        analyzing: 'w-4 h-4 text-yellow-500 animate-pulse',
+        fetching_urls: 'w-4 h-4 text-yellow-500 animate-pulse',
+        generating_embeddings: 'w-4 h-4 text-yellow-500 animate-pulse',
+        completed: 'w-4 h-4 text-green-500 animate-pulse',
+        failed: 'w-4 h-4 text-red-500 animate-pulse'
+      };
+      return <Icon className={activeClasses[stage] || 'w-4 h-4 text-gray-400 animate-pulse'} />;
     }
     
     // Completed stages are green
@@ -50,7 +58,15 @@ function EntryCard({ entry, isSelected, onClick }) {
     }
     
     // Future stages are gray
-    return <Icon className={`w-4 h-4 ${currentStage.color}`} />;
+    const futureClasses = {
+      created: 'w-4 h-4 text-gray-400',
+      analyzing: 'w-4 h-4 text-yellow-500',
+      fetching_urls: 'w-4 h-4 text-yellow-500',
+      generating_embeddings: 'w-4 h-4 text-yellow-500',
+      completed: 'w-4 h-4 text-green-500',
+      failed: 'w-4 h-4 text-red-500'
+    };
+    return <Icon className={futureClasses[stage] || 'w-4 h-4 text-gray-400'} />;
   };
 
   return (

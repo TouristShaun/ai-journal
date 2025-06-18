@@ -1,0 +1,440 @@
+[
+  {
+    "id": "classic_keyword_0",
+    "name": "Single keyword: exercise",
+    "description": "Test single keyword matching",
+    "query": "exercise",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_keyword_2",
+    "name": "Single keyword: journey",
+    "description": "Test single keyword matching",
+    "query": "journey",
+    "expected_ids": [
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_keyword_4",
+    "name": "Single keyword: meditation",
+    "description": "Test single keyword matching",
+    "query": "meditation",
+    "expected_ids": [
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_hobbies",
+    "name": "Topic search: hobbies",
+    "description": "Test topic-based search",
+    "query": "hobbies",
+    "expected_ids": [
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "79cf6094-950d-4d86-a720-60bd6e7fe403",
+      "8d291c47-3807-4a76-98d9-3270ed930500",
+      "71a1ff4a-8d24-497f-8ab6-e455570cd7f8",
+      "c7346126-a0b9-4fc1-a5cf-d4681f86ede9"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_mindfulness",
+    "name": "Topic search: mindfulness",
+    "description": "Test topic-based search",
+    "query": "mindfulness",
+    "expected_ids": [
+      "79cf6094-950d-4d86-a720-60bd6e7fe403",
+      "c7346126-a0b9-4fc1-a5cf-d4681f86ede9",
+      "45d2574d-e01f-48ae-94ab-084cb7435373",
+      "840a35bb-838d-4bfd-9a17-c283ba173feb",
+      "d752c404-acd3-4b64-984f-b972099131b5"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_travel",
+    "name": "Topic search: travel",
+    "description": "Test topic-based search",
+    "query": "travel",
+    "expected_ids": [
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "cff99e97-e281-4f71-975a-09edfa422ecb",
+      "883b0537-f4af-4057-8df6-81e301e41fa8",
+      "e8d4f907-2daf-4fd4-a328-027448be5f89",
+      "66276c5b-12d4-4490-bfe8-ffbd77183e24"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_goals",
+    "name": "Topic search: goals",
+    "description": "Test topic-based search",
+    "query": "goals",
+    "expected_ids": [
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "8d291c47-3807-4a76-98d9-3270ed930500",
+      "71a1ff4a-8d24-497f-8ab6-e455570cd7f8",
+      "c2375774-1c18-47a0-b31c-4d160676abb8",
+      "0dfc9136-81a5-4302-9682-aa9ad610c780"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_relationships",
+    "name": "Topic search: relationships",
+    "description": "Test topic-based search",
+    "query": "relationships",
+    "expected_ids": [
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "078acfb9-97fd-460a-81a1-e565a5397555",
+      "417e171a-bbd7-4b33-8532-fbfc108fd981",
+      "36f416a7-1da5-4636-ac7a-1582599bc924"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_finance",
+    "name": "Topic search: finance",
+    "description": "Test topic-based search",
+    "query": "finance",
+    "expected_ids": [
+      "c9699f21-6788-455c-a694-63d00d9a7ec2",
+      "25beb622-0727-4588-9a47-a3df3841c7f5",
+      "8d291c47-3807-4a76-98d9-3270ed930500",
+      "a343c702-7506-4eb1-9286-2c005a8b10c4",
+      "845ecf23-ff7b-4925-a76b-533ff61ea91a"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_creativity",
+    "name": "Topic search: creativity",
+    "description": "Test topic-based search",
+    "query": "creativity",
+    "expected_ids": [
+      "25beb622-0727-4588-9a47-a3df3841c7f5",
+      "699b0b14-4f94-4c15-891e-78c4777f6996",
+      "7f567f64-5d67-4138-95ab-31d026aefbf8",
+      "aa6096fe-6861-48bb-a90b-f6fb786e7555",
+      "efebe554-9dc6-45e8-8288-e6a89a682994"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_work",
+    "name": "Topic search: work",
+    "description": "Test topic-based search",
+    "query": "work",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2",
+      "c2375774-1c18-47a0-b31c-4d160676abb8",
+      "aa6096fe-6861-48bb-a90b-f6fb786e7555"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_health",
+    "name": "Topic search: health",
+    "description": "Test topic-based search",
+    "query": "health",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "d6a051d2-30ef-4f46-8b84-6be1ae48cebc",
+      "9c909d67-9b47-4a10-ba02-4151122a7a82"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_learning",
+    "name": "Topic search: learning",
+    "description": "Test topic-based search",
+    "query": "learning",
+    "expected_ids": [
+      "25beb622-0727-4588-9a47-a3df3841c7f5",
+      "699b0b14-4f94-4c15-891e-78c4777f6996",
+      "9c909d67-9b47-4a10-ba02-4151122a7a82",
+      "e5174b1c-5f0d-4446-8cbc-146d00cfa6fb",
+      "99e7c18b-3557-4c11-8d8e-762f51892385"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_family",
+    "name": "Topic search: family",
+    "description": "Test topic-based search",
+    "query": "family",
+    "expected_ids": [
+      "00fd8694-dd20-4b8b-b3e4-50fe643db9aa",
+      "71a1ff4a-8d24-497f-8ab6-e455570cd7f8",
+      "417e171a-bbd7-4b33-8532-fbfc108fd981",
+      "699b0b14-4f94-4c15-891e-78c4777f6996",
+      "49d29293-4fce-4a0d-b133-98e388be512b"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_career",
+    "name": "Topic search: career",
+    "description": "Test topic-based search",
+    "query": "career",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "e8d4f907-2daf-4fd4-a328-027448be5f89"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_technology",
+    "name": "Topic search: technology",
+    "description": "Test topic-based search",
+    "query": "technology",
+    "expected_ids": [
+      "d6a051d2-30ef-4f46-8b84-6be1ae48cebc",
+      "45a08226-885a-4e8f-8861-64ba70a6997d",
+      "a2d14b82-d0e3-41fc-86e8-b4f773cfbe2c",
+      "e5174b1c-5f0d-4446-8cbc-146d00cfa6fb",
+      "5800401b-02ee-4f95-bf42-8655385bd714"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_productivity",
+    "name": "Topic search: productivity",
+    "description": "Test topic-based search",
+    "query": "productivity",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "00fd8694-dd20-4b8b-b3e4-50fe643db9aa",
+      "26c18577-9a13-4532-a097-b4c3cb10a1d0",
+      "45a08226-885a-4e8f-8861-64ba70a6997d",
+      "3f274d83-c2ff-4c5c-b08d-46194f12698f"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_topic_reflection",
+    "name": "Topic search: reflection",
+    "description": "Test topic-based search",
+    "query": "reflection",
+    "expected_ids": [
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "07af25f7-2337-4515-959d-7aef508f8b90",
+      "845ecf23-ff7b-4925-a76b-533ff61ea91a",
+      "ad61ee31-467e-4dd0-8619-0e4c74420d68"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Stanford",
+    "name": "Entity search: Stanford",
+    "description": "Test entity-based search",
+    "query": "\"Stanford\"",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "79cf6094-950d-4d86-a720-60bd6e7fe403",
+      "8d291c47-3807-4a76-98d9-3270ed930500"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Tesla",
+    "name": "Entity search: Tesla",
+    "description": "Test entity-based search",
+    "query": "\"Tesla\"",
+    "expected_ids": [
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "45d2574d-e01f-48ae-94ab-084cb7435373"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_San_Francisco",
+    "name": "Entity search: San Francisco",
+    "description": "Test entity-based search",
+    "query": "\"San Francisco\"",
+    "expected_ids": [
+      "79cf6094-950d-4d86-a720-60bd6e7fe403",
+      "078acfb9-97fd-460a-81a1-e565a5397555",
+      "d6a051d2-30ef-4f46-8b84-6be1ae48cebc"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Jane_Smith",
+    "name": "Entity search: Jane Smith",
+    "description": "Test entity-based search",
+    "query": "\"Jane Smith\"",
+    "expected_ids": [
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "49d29293-4fce-4a0d-b133-98e388be512b",
+      "0dfc9136-81a5-4302-9682-aa9ad610c780"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Microsoft",
+    "name": "Entity search: Microsoft",
+    "description": "Test entity-based search",
+    "query": "\"Microsoft\"",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "9c909d67-9b47-4a10-ba02-4151122a7a82",
+      "efebe554-9dc6-45e8-8288-e6a89a682994"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Cambridge",
+    "name": "Entity search: Cambridge",
+    "description": "Test entity-based search",
+    "query": "\"Cambridge\"",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Oxford",
+    "name": "Entity search: Oxford",
+    "description": "Test entity-based search",
+    "query": "\"Oxford\"",
+    "expected_ids": [
+      "078acfb9-97fd-460a-81a1-e565a5397555",
+      "7f567f64-5d67-4138-95ab-31d026aefbf8",
+      "26c18577-9a13-4532-a097-b4c3cb10a1d0"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Google",
+    "name": "Entity search: Google",
+    "description": "Test entity-based search",
+    "query": "\"Google\"",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "49d29293-4fce-4a0d-b133-98e388be512b",
+      "64ae41f6-398d-4dc9-9a1d-178995395db4"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_OpenAI",
+    "name": "Entity search: OpenAI",
+    "description": "Test entity-based search",
+    "query": "\"OpenAI\"",
+    "expected_ids": [
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "25beb622-0727-4588-9a47-a3df3841c7f5",
+      "00fd8694-dd20-4b8b-b3e4-50fe643db9aa"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_New_York",
+    "name": "Entity search: New York",
+    "description": "Test entity-based search",
+    "query": "\"New York\"",
+    "expected_ids": [
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "25beb622-0727-4588-9a47-a3df3841c7f5",
+      "d6a051d2-30ef-4f46-8b84-6be1ae48cebc"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Harvard",
+    "name": "Entity search: Harvard",
+    "description": "Test entity-based search",
+    "query": "\"Harvard\"",
+    "expected_ids": [
+      "36f416a7-1da5-4636-ac7a-1582599bc924",
+      "883b0537-f4af-4057-8df6-81e301e41fa8",
+      "aa6096fe-6861-48bb-a90b-f6fb786e7555"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_John_Doe",
+    "name": "Entity search: John Doe",
+    "description": "Test entity-based search",
+    "query": "\"John Doe\"",
+    "expected_ids": [
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Apple",
+    "name": "Entity search: Apple",
+    "description": "Test entity-based search",
+    "query": "\"Apple\"",
+    "expected_ids": [
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "79cf6094-950d-4d86-a720-60bd6e7fe403",
+      "07af25f7-2337-4515-959d-7aef508f8b90"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_MIT",
+    "name": "Entity search: MIT",
+    "description": "Test entity-based search",
+    "query": "\"MIT\"",
+    "expected_ids": [
+      "c9699f21-6788-455c-a694-63d00d9a7ec2",
+      "07af25f7-2337-4515-959d-7aef508f8b90",
+      "417e171a-bbd7-4b33-8532-fbfc108fd981"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_entity_Amazon",
+    "name": "Entity search: Amazon",
+    "description": "Test entity-based search",
+    "query": "\"Amazon\"",
+    "expected_ids": [
+      "71a1ff4a-8d24-497f-8ab6-e455570cd7f8",
+      "883b0537-f4af-4057-8df6-81e301e41fa8",
+      "c2375774-1c18-47a0-b31c-4d160676abb8"
+    ],
+    "search_mode": "classic"
+  },
+  {
+    "id": "classic_filtered_recent",
+    "name": "Recent entries with filters",
+    "description": "Test search with date filters",
+    "query": "",
+    "filters": {
+      "favorites": false,
+      "from_date": "2025-05-18"
+    },
+    "expected_ids": [
+      "25beb622-0727-4588-9a47-a3df3841c7f5",
+      "36f416a7-1da5-4636-ac7a-1582599bc924",
+      "4049b4bf-ca3c-4113-8a59-fe0dbcb27990",
+      "edc820bb-f412-4482-b3bf-19eb69b49ae8",
+      "f46d8d7c-729f-419a-a4b6-b420bc9cfa74"
+    ],
+    "search_mode": "classic"
+  }
+]

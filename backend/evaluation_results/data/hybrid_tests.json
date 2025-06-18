@@ -1,0 +1,58 @@
+[
+  {
+    "id": "hybrid_keyword_semantic_0",
+    "name": "Hybrid: exercise + semantics",
+    "description": "Test hybrid search combining keyword and semantic",
+    "query": "exercise",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2",
+      "00fd8694-dd20-4b8b-b3e4-50fe643db9aa"
+    ],
+    "search_mode": "hybrid"
+  },
+  {
+    "id": "hybrid_keyword_semantic_2",
+    "name": "Hybrid: journey + semantics",
+    "description": "Test hybrid search combining keyword and semantic",
+    "query": "journey",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9"
+    ],
+    "search_mode": "hybrid"
+  },
+  {
+    "id": "hybrid_natural_0",
+    "name": "Natural query: How can I improve my productiv...",
+    "description": "Test hybrid search with natural language",
+    "query": "How can I improve my productivity while working from home?",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2",
+      "00fd8694-dd20-4b8b-b3e4-50fe643db9aa",
+      "26c18577-9a13-4532-a097-b4c3cb10a1d0"
+    ],
+    "search_mode": "hybrid"
+  },
+  {
+    "id": "hybrid_natural_1",
+    "name": "Natural query: Tell me about recent technolog...",
+    "description": "Test hybrid search with natural language",
+    "query": "Tell me about recent technology innovations",
+    "expected_ids": [
+      "d6a051d2-30ef-4f46-8b84-6be1ae48cebc",
+      "45a08226-885a-4e8f-8861-64ba70a6997d",
+      "a2d14b82-d0e3-41fc-86e8-b4f773cfbe2c",
+      "e5174b1c-5f0d-4446-8cbc-146d00cfa6fb",
+      "5800401b-02ee-4f95-bf42-8655385bd714"
+    ],
+    "search_mode": "hybrid"
+  }
+]

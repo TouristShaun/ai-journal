@@ -1,0 +1,137 @@
+[
+  {
+    "id": "vector_similar_0",
+    "name": "Vector similar: Entry 1: work and Stanford",
+    "description": "Test similar mode vector search",
+    "query": "Entry 1: work and Stanford\n\nHad a great conversation with work about Stanford. We discussed how work",
+    "expected_ids": [
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2",
+      "00fd8694-dd20-4b8b-b3e4-50fe643db9aa",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "similar"
+  },
+  {
+    "id": "vector_similar_1",
+    "name": "Vector similar: Entry 2: career and Google",
+    "description": "Test similar mode vector search",
+    "query": "Entry 2: career and Google\n\nVisited career and met Google. The career experience was really memorabl",
+    "expected_ids": [
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "e8d4f907-2daf-4fd4-a328-027448be5f89",
+      "97e0e627-0567-4f60-a516-7ee4096b4767"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "similar"
+  },
+  {
+    "id": "vector_similar_2",
+    "name": "Vector similar: Entry 3: travel and John Doe",
+    "description": "Test similar mode vector search",
+    "query": "Entry 3: travel and John Doe\n\nToday I learned about travel and it made me think about John Doe. jour",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "07af25f7-2337-4515-959d-7aef508f8b90"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "similar"
+  },
+  {
+    "id": "vector_explore_0",
+    "name": "Vector explore: Entry 1: work and Stanford",
+    "description": "Test explore mode vector search",
+    "query": "Entry 1: work and Stanford\n\nHad a great conversation with work about Stanford. We discussed how work",
+    "expected_ids": [
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2",
+      "00fd8694-dd20-4b8b-b3e4-50fe643db9aa",
+      "79cf6094-950d-4d86-a720-60bd6e7fe403"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "explore"
+  },
+  {
+    "id": "vector_explore_1",
+    "name": "Vector explore: Entry 2: career and Google",
+    "description": "Test explore mode vector search",
+    "query": "Entry 2: career and Google\n\nVisited career and met Google. The career experience was really memorabl",
+    "expected_ids": [
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+      "c7346126-a0b9-4fc1-a5cf-d4681f86ede9",
+      "49d29293-4fce-4a0d-b133-98e388be512b"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "explore"
+  },
+  {
+    "id": "vector_explore_2",
+    "name": "Vector explore: Entry 3: travel and John Doe",
+    "description": "Test explore mode vector search",
+    "query": "Entry 3: travel and John Doe\n\nToday I learned about travel and it made me think about John Doe. jour",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "explore"
+  },
+  {
+    "id": "vector_contrast_0",
+    "name": "Vector contrast: Entry 3: travel and John Doe",
+    "description": "Test contrast mode vector search",
+    "query": "Entry 3: travel and John Doe\n\nToday I learned about travel and it made me think about John Doe. jour",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "c9699f21-6788-455c-a694-63d00d9a7ec2"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "contrast"
+  },
+  {
+    "id": "vector_contrast_1",
+    "name": "Vector contrast: Entry 1: work and Stanford",
+    "description": "Test contrast mode vector search",
+    "query": "Entry 1: work and Stanford\n\nHad a great conversation with work about Stanford. We discussed how work",
+    "expected_ids": [
+      "32b16b4a-490c-423f-a415-105deef5948a",
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+      "25beb622-0727-4588-9a47-a3df3841c7f5"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "contrast"
+  },
+  {
+    "id": "vector_contrast_2",
+    "name": "Vector contrast: Entry 2: career and Google",
+    "description": "Test contrast mode vector search",
+    "query": "Entry 2: career and Google\n\nVisited career and met Google. The career experience was really memorabl",
+    "expected_ids": [
+      "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+      "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+      "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+      "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+      "262796bb-90e1-46e5-9ff5-ebd1a9d087e9"
+    ],
+    "search_mode": "vector",
+    "vector_mode": "contrast"
+  }
+]

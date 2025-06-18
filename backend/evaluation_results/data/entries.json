@@ -1,0 +1,1871 @@
+[
+  {
+    "id": "3bd86fae-bf35-44ab-a840-62ba98d80cbe",
+    "title": "Entry 1: work and Stanford",
+    "content": "Entry 1: work and Stanford\n\nHad a great conversation with work about Stanford. We discussed how workflow impacts our daily lives.\n\nKeywords: exercise, fitness, workflow, tasks",
+    "topics": [
+      "work",
+      "health",
+      "productivity"
+    ],
+    "entities": [
+      "Stanford"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "exercise",
+      "fitness",
+      "workflow",
+      "tasks"
+    ],
+    "category": "work",
+    "created_at": "2024-08-16T00:22:03.26474-04:00"
+  },
+  {
+    "id": "32b16b4a-490c-423f-a415-105deef5948a",
+    "title": "Entry 2: career and Google",
+    "content": "Entry 2: career and Google\n\nVisited career and met Google. The career experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "career"
+    ],
+    "entities": [
+      "Google",
+      "Microsoft",
+      "Cambridge"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "career",
+    "created_at": "2025-05-17T00:22:03.270192-04:00"
+  },
+  {
+    "id": "07cbca01-ad49-4227-95a8-d2d8a51b0cfa",
+    "title": "Entry 3: travel and John Doe",
+    "content": "Entry 3: travel and John Doe\n\nToday I learned about travel and it made me think about John Doe. journey was particularly interesting.\n\nKeywords: journey, adventure",
+    "topics": [
+      "travel",
+      "reflection",
+      "career"
+    ],
+    "entities": [
+      "John Doe"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "journey",
+      "adventure"
+    ],
+    "category": "travel",
+    "created_at": "2025-01-26T23:22:03.270996-05:00"
+  },
+  {
+    "id": "0e0efc0e-a3a7-4fdf-a712-e90aad31bdc1",
+    "title": "Entry 4: work and John Doe",
+    "content": "Entry 4: work and John Doe\n\nReflecting on my experience with work. It's been a journey with John Doe, learning about work.\n\nKeywords: ",
+    "topics": [
+      "work",
+      "goals",
+      "hobbies"
+    ],
+    "entities": [
+      "John Doe",
+      "Apple"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "work",
+    "created_at": "2024-09-14T00:22:03.271624-04:00"
+  },
+  {
+    "id": "1e5c7679-eb3b-41a2-9a35-0e0066bf5359",
+    "title": "Entry 5: health and OpenAI",
+    "content": "Entry 5: health and OpenAI\n\nReflecting on my experience with health. It's been a journey with OpenAI, learning about love.\n\nKeywords: meditation, exercise, trust, love",
+    "topics": [
+      "health",
+      "career",
+      "relationships"
+    ],
+    "entities": [
+      "OpenAI",
+      "Cambridge"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "meditation",
+      "exercise",
+      "trust",
+      "love"
+    ],
+    "category": "health",
+    "created_at": "2025-03-20T00:22:03.272208-04:00"
+  },
+  {
+    "id": "262796bb-90e1-46e5-9ff5-ebd1a9d087e9",
+    "title": "Entry 6: reflection and New York",
+    "content": "Entry 6: reflection and New York\n\nReflecting on my experience with reflection. It's been a journey with New York, learning about reflection.\n\nKeywords: ",
+    "topics": [
+      "reflection"
+    ],
+    "entities": [
+      "New York",
+      "Tesla",
+      "Cambridge"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "reflection",
+    "created_at": "2024-07-23T00:22:03.272734-04:00"
+  },
+  {
+    "id": "c9699f21-6788-455c-a694-63d00d9a7ec2",
+    "title": "Entry 7: work and John Doe",
+    "content": "Entry 7: work and John Doe\n\nVisited work and met John Doe. The work experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "work",
+      "finance"
+    ],
+    "entities": [
+      "John Doe",
+      "MIT"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "work",
+    "created_at": "2025-04-17T00:22:03.273305-04:00"
+  },
+  {
+    "id": "25beb622-0727-4588-9a47-a3df3841c7f5",
+    "title": "Entry 8: creativity and New York",
+    "content": "Entry 8: creativity and New York\n\nWorking on creativity project with New York. The main challenge is creativity but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "creativity",
+      "finance",
+      "learning"
+    ],
+    "entities": [
+      "New York",
+      "OpenAI",
+      "John Doe"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "creativity",
+    "created_at": "2025-06-05T00:22:03.274084-04:00"
+  },
+  {
+    "id": "00fd8694-dd20-4b8b-b3e4-50fe643db9aa",
+    "title": "Entry 9: family and OpenAI",
+    "content": "Entry 9: family and OpenAI\n\nWorking on family project with OpenAI. The main challenge is efficiency but I'm making progress.\n\nKeywords: efficiency, schedule",
+    "topics": [
+      "family",
+      "productivity"
+    ],
+    "entities": [
+      "OpenAI"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "efficiency",
+      "schedule"
+    ],
+    "category": "family",
+    "created_at": "2024-11-17T23:22:03.274978-05:00"
+  },
+  {
+    "id": "79cf6094-950d-4d86-a720-60bd6e7fe403",
+    "title": "Entry 10: hobbies and Apple",
+    "content": "Entry 10: hobbies and Apple\n\nReflecting on my experience with hobbies. It's been a journey with Apple, learning about hobbies.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "mindfulness"
+    ],
+    "entities": [
+      "Apple",
+      "San Francisco",
+      "Stanford"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-10-24T00:22:03.275675-04:00"
+  },
+  {
+    "id": "ab9adc08-9e00-4d5b-963e-fb6bdd5cdf48",
+    "title": "Entry 11: health and Jane Smith",
+    "content": "Entry 11: health and Jane Smith\n\nHad a great conversation with health about Jane Smith. We discussed how trust impacts our daily lives.\n\nKeywords: wellness, meditation, trust, love",
+    "topics": [
+      "health",
+      "career",
+      "relationships"
+    ],
+    "entities": [
+      "Jane Smith",
+      "Tesla"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "wellness",
+      "meditation",
+      "trust",
+      "love"
+    ],
+    "category": "health",
+    "created_at": "2024-11-27T23:22:03.276173-05:00"
+  },
+  {
+    "id": "8d291c47-3807-4a76-98d9-3270ed930500",
+    "title": "Entry 12: hobbies and Stanford",
+    "content": "Entry 12: hobbies and Stanford\n\nHad a great conversation with hobbies about Stanford. We discussed how hobbies impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "goals",
+      "finance"
+    ],
+    "entities": [
+      "Stanford"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-12-30T23:22:03.276807-05:00"
+  },
+  {
+    "id": "07af25f7-2337-4515-959d-7aef508f8b90",
+    "title": "Entry 13: reflection and Apple",
+    "content": "Entry 13: reflection and Apple\n\nReflecting on my experience with reflection. It's been a journey with Apple, learning about reflection.\n\nKeywords: ",
+    "topics": [
+      "reflection"
+    ],
+    "entities": [
+      "Apple",
+      "John Doe",
+      "MIT"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "reflection",
+    "created_at": "2024-07-11T00:22:03.277381-04:00"
+  },
+  {
+    "id": "71a1ff4a-8d24-497f-8ab6-e455570cd7f8",
+    "title": "Entry 14: hobbies and Amazon",
+    "content": "Entry 14: hobbies and Amazon\n\nVisited hobbies and met Amazon. The hobbies experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "goals",
+      "family"
+    ],
+    "entities": [
+      "Amazon"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2025-02-04T23:22:03.278158-05:00"
+  },
+  {
+    "id": "078acfb9-97fd-460a-81a1-e565a5397555",
+    "title": "Entry 15: relationships and San Francisco",
+    "content": "Entry 15: relationships and San Francisco\n\nVisited relationships and met San Francisco. The friendship experience was really memorable.\n\nKeywords: friendship, trust",
+    "topics": [
+      "relationships"
+    ],
+    "entities": [
+      "San Francisco",
+      "Oxford"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "friendship",
+      "trust"
+    ],
+    "category": "relationships",
+    "created_at": "2024-06-25T00:22:03.278632-04:00"
+  },
+  {
+    "id": "417e171a-bbd7-4b33-8532-fbfc108fd981",
+    "title": "Entry 16: relationships and OpenAI",
+    "content": "Entry 16: relationships and OpenAI\n\nVisited relationships and met OpenAI. The love experience was really memorable.\n\nKeywords: love, connection",
+    "topics": [
+      "relationships",
+      "family"
+    ],
+    "entities": [
+      "OpenAI",
+      "Stanford",
+      "MIT"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "love",
+      "connection"
+    ],
+    "category": "relationships",
+    "created_at": "2025-01-19T23:22:03.279116-05:00"
+  },
+  {
+    "id": "699b0b14-4f94-4c15-891e-78c4777f6996",
+    "title": "Entry 17: family and Apple",
+    "content": "Entry 17: family and Apple\n\nHad a great conversation with family about Apple. We discussed how family impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "family",
+      "creativity",
+      "learning"
+    ],
+    "entities": [
+      "Apple"
+    ],
+    "sentiment": "negative",
+    "keywords": [],
+    "category": "family",
+    "created_at": "2024-11-12T23:22:03.279599-05:00"
+  },
+  {
+    "id": "cff99e97-e281-4f71-975a-09edfa422ecb",
+    "title": "Entry 18: travel and John Doe",
+    "content": "Entry 18: travel and John Doe\n\nWorking on travel project with John Doe. The main challenge is adventure but I'm making progress.\n\nKeywords: adventure, exploration",
+    "topics": [
+      "travel"
+    ],
+    "entities": [
+      "John Doe"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "adventure",
+      "exploration"
+    ],
+    "category": "travel",
+    "created_at": "2024-11-21T23:22:03.280075-05:00"
+  },
+  {
+    "id": "36f416a7-1da5-4636-ac7a-1582599bc924",
+    "title": "Entry 19: relationships and Harvard",
+    "content": "Entry 19: relationships and Harvard\n\nToday I learned about relationships and it made me think about Harvard. love was particularly interesting.\n\nKeywords: love, connection",
+    "topics": [
+      "relationships"
+    ],
+    "entities": [
+      "Harvard"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "love",
+      "connection"
+    ],
+    "category": "relationships",
+    "created_at": "2025-05-21T00:22:03.280423-04:00"
+  },
+  {
+    "id": "c7346126-a0b9-4fc1-a5cf-d4681f86ede9",
+    "title": "Entry 20: mindfulness and Apple",
+    "content": "Entry 20: mindfulness and Apple\n\nVisited mindfulness and met Apple. The mindfulness experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "mindfulness",
+      "hobbies"
+    ],
+    "entities": [
+      "Apple",
+      "Cambridge"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "mindfulness",
+    "created_at": "2024-10-26T00:22:03.280732-04:00"
+  },
+  {
+    "id": "d6a051d2-30ef-4f46-8b84-6be1ae48cebc",
+    "title": "Entry 21: health and New York",
+    "content": "Entry 21: health and New York\n\nReflecting on my experience with health. It's been a journey with New York, learning about AI.\n\nKeywords: fitness, meditation, AI, hardware",
+    "topics": [
+      "health",
+      "technology"
+    ],
+    "entities": [
+      "New York",
+      "San Francisco"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "fitness",
+      "meditation",
+      "AI",
+      "hardware"
+    ],
+    "category": "health",
+    "created_at": "2024-09-23T00:22:03.281013-04:00"
+  },
+  {
+    "id": "7f567f64-5d67-4138-95ab-31d026aefbf8",
+    "title": "Entry 22: creativity and Oxford",
+    "content": "Entry 22: creativity and Oxford\n\nVisited creativity and met Oxford. The creativity experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "creativity"
+    ],
+    "entities": [
+      "Oxford",
+      "New York",
+      "San Francisco"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "creativity",
+    "created_at": "2024-11-14T23:22:03.281315-05:00"
+  },
+  {
+    "id": "49d29293-4fce-4a0d-b133-98e388be512b",
+    "title": "Entry 23: family and Stanford",
+    "content": "Entry 23: family and Stanford\n\nVisited family and met Stanford. The family experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "family"
+    ],
+    "entities": [
+      "Stanford",
+      "Google",
+      "Jane Smith"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "family",
+    "created_at": "2025-02-12T23:22:03.281665-05:00"
+  },
+  {
+    "id": "9c909d67-9b47-4a10-ba02-4151122a7a82",
+    "title": "Entry 24: learning and Microsoft",
+    "content": "Entry 24: learning and Microsoft\n\nVisited learning and met Microsoft. The fitness experience was really memorable.\n\nKeywords: meditation, fitness",
+    "topics": [
+      "learning",
+      "health"
+    ],
+    "entities": [
+      "Microsoft",
+      "Apple"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "meditation",
+      "fitness"
+    ],
+    "category": "learning",
+    "created_at": "2024-09-26T00:22:03.282317-04:00"
+  },
+  {
+    "id": "26c18577-9a13-4532-a097-b4c3cb10a1d0",
+    "title": "Entry 25: productivity and Oxford",
+    "content": "Entry 25: productivity and Oxford\n\nHad a great conversation with productivity about Oxford. We discussed how workflow impacts our daily lives.\n\nKeywords: workflow, efficiency",
+    "topics": [
+      "productivity"
+    ],
+    "entities": [
+      "Oxford"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "workflow",
+      "efficiency"
+    ],
+    "category": "productivity",
+    "created_at": "2024-11-02T00:22:03.282673-04:00"
+  },
+  {
+    "id": "883b0537-f4af-4057-8df6-81e301e41fa8",
+    "title": "Entry 26: relationships and Amazon",
+    "content": "Entry 26: relationships and Amazon\n\nVisited relationships and met Amazon. The destination experience was really memorable.\n\nKeywords: trust, friendship, journey, destination",
+    "topics": [
+      "relationships",
+      "travel"
+    ],
+    "entities": [
+      "Amazon",
+      "Harvard",
+      "John Doe"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "trust",
+      "friendship",
+      "journey",
+      "destination"
+    ],
+    "category": "relationships",
+    "created_at": "2024-11-03T00:22:03.283059-04:00"
+  },
+  {
+    "id": "e8d4f907-2daf-4fd4-a328-027448be5f89",
+    "title": "Entry 27: career and Apple",
+    "content": "Entry 27: career and Apple\n\nWorking on career project with Apple. The main challenge is journey but I'm making progress.\n\nKeywords: destination, journey",
+    "topics": [
+      "career",
+      "travel"
+    ],
+    "entities": [
+      "Apple"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "destination",
+      "journey"
+    ],
+    "category": "career",
+    "created_at": "2024-08-24T00:22:03.283342-04:00"
+  },
+  {
+    "id": "66276c5b-12d4-4490-bfe8-ffbd77183e24",
+    "title": "Entry 28: travel and Oxford",
+    "content": "Entry 28: travel and Oxford\n\nWorking on travel project with Oxford. The main challenge is journey but I'm making progress.\n\nKeywords: destination, journey",
+    "topics": [
+      "travel"
+    ],
+    "entities": [
+      "Oxford"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "destination",
+      "journey"
+    ],
+    "category": "travel",
+    "created_at": "2024-08-31T00:22:03.283656-04:00"
+  },
+  {
+    "id": "c2375774-1c18-47a0-b31c-4d160676abb8",
+    "title": "Entry 29: relationships and Amazon",
+    "content": "Entry 29: relationships and Amazon\n\nVisited relationships and met Amazon. The friendship experience was really memorable.\n\nKeywords: trust, friendship",
+    "topics": [
+      "relationships",
+      "work",
+      "goals"
+    ],
+    "entities": [
+      "Amazon"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "trust",
+      "friendship"
+    ],
+    "category": "relationships",
+    "created_at": "2024-07-11T00:22:03.283969-04:00"
+  },
+  {
+    "id": "45a08226-885a-4e8f-8861-64ba70a6997d",
+    "title": "Entry 30: technology and John Doe",
+    "content": "Entry 30: technology and John Doe\n\nWorking on technology project with John Doe. The main challenge is workflow but I'm making progress.\n\nKeywords: digital, software, tasks, workflow",
+    "topics": [
+      "technology",
+      "productivity"
+    ],
+    "entities": [
+      "John Doe",
+      "New York"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "digital",
+      "software",
+      "tasks",
+      "workflow"
+    ],
+    "category": "technology",
+    "created_at": "2024-12-14T23:22:03.284222-05:00"
+  },
+  {
+    "id": "aa6096fe-6861-48bb-a90b-f6fb786e7555",
+    "title": "Entry 31: creativity and Amazon",
+    "content": "Entry 31: creativity and Amazon\n\nWorking on creativity project with Amazon. The main challenge is exploration but I'm making progress.\n\nKeywords: journey, exploration",
+    "topics": [
+      "creativity",
+      "work",
+      "travel"
+    ],
+    "entities": [
+      "Amazon",
+      "Harvard",
+      "John Doe"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "journey",
+      "exploration"
+    ],
+    "category": "creativity",
+    "created_at": "2024-07-11T00:22:03.284483-04:00"
+  },
+  {
+    "id": "f1dda4ba-7a70-4bc8-a1ef-07502541e101",
+    "title": "Entry 32: health and John Doe",
+    "content": "Entry 32: health and John Doe\n\nVisited health and met John Doe. The nutrition experience was really memorable.\n\nKeywords: nutrition, meditation",
+    "topics": [
+      "health",
+      "hobbies"
+    ],
+    "entities": [
+      "John Doe"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "nutrition",
+      "meditation"
+    ],
+    "category": "health",
+    "created_at": "2025-02-17T23:22:03.284743-05:00"
+  },
+  {
+    "id": "efebe554-9dc6-45e8-8288-e6a89a682994",
+    "title": "Entry 33: creativity and MIT",
+    "content": "Entry 33: creativity and MIT\n\nReflecting on my experience with creativity. It's been a journey with MIT, learning about creativity.\n\nKeywords: ",
+    "topics": [
+      "creativity",
+      "work"
+    ],
+    "entities": [
+      "MIT",
+      "John Doe",
+      "Microsoft"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "creativity",
+    "created_at": "2024-09-29T00:22:03.285248-04:00"
+  },
+  {
+    "id": "ccc9c6a9-8be6-4893-bd11-b0ab81bb3ec7",
+    "title": "Entry 34: travel and San Francisco",
+    "content": "Entry 34: travel and San Francisco\n\nWorking on travel project with San Francisco. The main challenge is adventure but I'm making progress.\n\nKeywords: exploration, adventure",
+    "topics": [
+      "travel"
+    ],
+    "entities": [
+      "San Francisco"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "exploration",
+      "adventure"
+    ],
+    "category": "travel",
+    "created_at": "2024-12-26T23:22:03.285624-05:00"
+  },
+  {
+    "id": "0dfc9136-81a5-4302-9682-aa9ad610c780",
+    "title": "Entry 35: work and Jane Smith",
+    "content": "Entry 35: work and Jane Smith\n\nReflecting on my experience with work. It's been a journey with Jane Smith, learning about work.\n\nKeywords: ",
+    "topics": [
+      "work",
+      "hobbies",
+      "goals"
+    ],
+    "entities": [
+      "Jane Smith",
+      "Cambridge"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "work",
+    "created_at": "2024-08-27T00:22:03.28593-04:00"
+  },
+  {
+    "id": "a343c702-7506-4eb1-9286-2c005a8b10c4",
+    "title": "Entry 36: finance and Microsoft",
+    "content": "Entry 36: finance and Microsoft\n\nReflecting on my experience with finance. It's been a journey with Microsoft, learning about finance.\n\nKeywords: ",
+    "topics": [
+      "finance"
+    ],
+    "entities": [
+      "Microsoft"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "finance",
+    "created_at": "2025-04-16T00:22:03.286161-04:00"
+  },
+  {
+    "id": "1df7a7f3-580d-4d6d-9f66-a8cb70eb3be8",
+    "title": "Entry 37: goals and Oxford",
+    "content": "Entry 37: goals and Oxford\n\nWorking on goals project with Oxford. The main challenge is goals but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "goals"
+    ],
+    "entities": [
+      "Oxford",
+      "Apple"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "goals",
+    "created_at": "2024-12-26T23:22:03.28638-05:00"
+  },
+  {
+    "id": "45d2574d-e01f-48ae-94ab-084cb7435373",
+    "title": "Entry 38: goals and Harvard",
+    "content": "Entry 38: goals and Harvard\n\nHad a great conversation with goals about Harvard. We discussed how goals impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "goals",
+      "family",
+      "mindfulness"
+    ],
+    "entities": [
+      "Harvard",
+      "Stanford",
+      "Tesla"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "goals",
+    "created_at": "2025-01-12T23:22:03.286616-05:00"
+  },
+  {
+    "id": "4049b4bf-ca3c-4113-8a59-fe0dbcb27990",
+    "title": "Entry 39: creativity and Apple",
+    "content": "Entry 39: creativity and Apple\n\nHad a great conversation with creativity about Apple. We discussed how exploration impacts our daily lives.\n\nKeywords: adventure, exploration",
+    "topics": [
+      "creativity",
+      "travel"
+    ],
+    "entities": [
+      "Apple",
+      "John Doe"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "adventure",
+      "exploration"
+    ],
+    "category": "creativity",
+    "created_at": "2025-06-09T00:22:03.286817-04:00"
+  },
+  {
+    "id": "5cb13644-0ff6-4a98-a4e6-26a3c1ef1d7f",
+    "title": "Entry 40: travel and Cambridge",
+    "content": "Entry 40: travel and Cambridge\n\nToday I learned about travel and it made me think about Cambridge. culture was particularly interesting.\n\nKeywords: culture, exploration",
+    "topics": [
+      "travel"
+    ],
+    "entities": [
+      "Cambridge",
+      "Tesla",
+      "Microsoft"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "culture",
+      "exploration"
+    ],
+    "category": "travel",
+    "created_at": "2024-07-11T00:22:03.287049-04:00"
+  },
+  {
+    "id": "3b2fd625-ee01-4da4-9ab1-38d5a07dc81d",
+    "title": "Entry 41: hobbies and Jane Smith",
+    "content": "Entry 41: hobbies and Jane Smith\n\nReflecting on my experience with hobbies. It's been a journey with Jane Smith, learning about hobbies.\n\nKeywords: ",
+    "topics": [
+      "hobbies"
+    ],
+    "entities": [
+      "Jane Smith",
+      "MIT"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-07-03T00:22:03.287253-04:00"
+  },
+  {
+    "id": "845ecf23-ff7b-4925-a76b-533ff61ea91a",
+    "title": "Entry 42: reflection and Cambridge",
+    "content": "Entry 42: reflection and Cambridge\n\nVisited reflection and met Cambridge. The reflection experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "reflection",
+      "creativity",
+      "finance"
+    ],
+    "entities": [
+      "Cambridge",
+      "New York"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "reflection",
+    "created_at": "2025-04-29T00:22:03.287457-04:00"
+  },
+  {
+    "id": "0c010db9-7a9d-4548-b63a-7da9f1e59b4c",
+    "title": "Entry 43: health and Tesla",
+    "content": "Entry 43: health and Tesla\n\nVisited health and met Tesla. The meditation experience was really memorable.\n\nKeywords: wellness, meditation",
+    "topics": [
+      "health"
+    ],
+    "entities": [
+      "Tesla",
+      "Oxford"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "wellness",
+      "meditation"
+    ],
+    "category": "health",
+    "created_at": "2024-11-04T23:22:03.287833-05:00"
+  },
+  {
+    "id": "840a35bb-838d-4bfd-9a17-c283ba173feb",
+    "title": "Entry 44: creativity and OpenAI",
+    "content": "Entry 44: creativity and OpenAI\n\nWorking on creativity project with OpenAI. The main challenge is creativity but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "creativity",
+      "mindfulness"
+    ],
+    "entities": [
+      "OpenAI"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "creativity",
+    "created_at": "2025-04-04T00:22:03.28804-04:00"
+  },
+  {
+    "id": "97e0e627-0567-4f60-a516-7ee4096b4767",
+    "title": "Entry 45: career and Tesla",
+    "content": "Entry 45: career and Tesla\n\nVisited career and met Tesla. The career experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "career"
+    ],
+    "entities": [
+      "Tesla",
+      "New York"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "career",
+    "created_at": "2025-04-05T00:22:03.288255-04:00"
+  },
+  {
+    "id": "edc820bb-f412-4482-b3bf-19eb69b49ae8",
+    "title": "Entry 46: health and San Francisco",
+    "content": "Entry 46: health and San Francisco\n\nWorking on health project with San Francisco. The main challenge is fitness but I'm making progress.\n\nKeywords: wellness, fitness",
+    "topics": [
+      "health",
+      "finance"
+    ],
+    "entities": [
+      "San Francisco"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "wellness",
+      "fitness"
+    ],
+    "category": "health",
+    "created_at": "2025-05-29T00:22:03.288489-04:00"
+  },
+  {
+    "id": "a2d14b82-d0e3-41fc-86e8-b4f773cfbe2c",
+    "title": "Entry 47: hobbies and Amazon",
+    "content": "Entry 47: hobbies and Amazon\n\nReflecting on my experience with hobbies. It's been a journey with Amazon, learning about innovation.\n\nKeywords: innovation, hardware",
+    "topics": [
+      "hobbies",
+      "goals",
+      "technology"
+    ],
+    "entities": [
+      "Amazon",
+      "Apple",
+      "New York"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "innovation",
+      "hardware"
+    ],
+    "category": "hobbies",
+    "created_at": "2025-04-20T00:22:03.288715-04:00"
+  },
+  {
+    "id": "ad61ee31-467e-4dd0-8619-0e4c74420d68",
+    "title": "Entry 48: finance and Tesla",
+    "content": "Entry 48: finance and Tesla\n\nVisited finance and met Tesla. The love experience was really memorable.\n\nKeywords: trust, love",
+    "topics": [
+      "finance",
+      "relationships",
+      "reflection"
+    ],
+    "entities": [
+      "Tesla"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "trust",
+      "love"
+    ],
+    "category": "finance",
+    "created_at": "2024-09-12T00:22:03.289687-04:00"
+  },
+  {
+    "id": "e5174b1c-5f0d-4446-8cbc-146d00cfa6fb",
+    "title": "Entry 49: technology and Tesla",
+    "content": "Entry 49: technology and Tesla\n\nReflecting on my experience with technology. It's been a journey with Tesla, learning about AI.\n\nKeywords: innovation, AI",
+    "topics": [
+      "technology",
+      "family",
+      "learning"
+    ],
+    "entities": [
+      "Tesla"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "innovation",
+      "AI"
+    ],
+    "category": "technology",
+    "created_at": "2024-11-19T23:22:03.290031-05:00"
+  },
+  {
+    "id": "64ae41f6-398d-4dc9-9a1d-178995395db4",
+    "title": "Entry 50: relationships and Apple",
+    "content": "Entry 50: relationships and Apple\n\nReflecting on my experience with relationships. It's been a journey with Apple, learning about friendship.\n\nKeywords: friendship, communication, exercise, wellness",
+    "topics": [
+      "relationships",
+      "reflection",
+      "health"
+    ],
+    "entities": [
+      "Apple",
+      "San Francisco",
+      "Google"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "friendship",
+      "communication",
+      "exercise",
+      "wellness"
+    ],
+    "category": "relationships",
+    "created_at": "2024-12-25T23:22:03.290264-05:00"
+  },
+  {
+    "id": "fd9cc026-6ac7-4f71-ac8c-3f7a2a820e9d",
+    "title": "Entry 51: creativity and Tesla",
+    "content": "Entry 51: creativity and Tesla\n\nWorking on creativity project with Tesla. The main challenge is wellness but I'm making progress.\n\nKeywords: nutrition, wellness, communication, friendship",
+    "topics": [
+      "creativity",
+      "health",
+      "relationships"
+    ],
+    "entities": [
+      "Tesla",
+      "Google"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "nutrition",
+      "wellness",
+      "communication",
+      "friendship"
+    ],
+    "category": "creativity",
+    "created_at": "2025-04-15T00:22:03.290504-04:00"
+  },
+  {
+    "id": "e679a6a3-c11e-4a81-855b-64fc9f7362cc",
+    "title": "Entry 52: hobbies and Cambridge",
+    "content": "Entry 52: hobbies and Cambridge\n\nHad a great conversation with hobbies about Cambridge. We discussed how hobbies impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "hobbies"
+    ],
+    "entities": [
+      "Cambridge",
+      "Stanford",
+      "Microsoft"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2025-01-08T23:22:03.29096-05:00"
+  },
+  {
+    "id": "99e7c18b-3557-4c11-8d8e-762f51892385",
+    "title": "Entry 53: learning and Google",
+    "content": "Entry 53: learning and Google\n\nVisited learning and met Google. The learning experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "learning",
+      "creativity",
+      "hobbies"
+    ],
+    "entities": [
+      "Google",
+      "Oxford"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "learning",
+    "created_at": "2025-05-11T00:22:03.291206-04:00"
+  },
+  {
+    "id": "4b5f401a-3327-4eaf-9aae-895dd046e976",
+    "title": "Entry 54: hobbies and Harvard",
+    "content": "Entry 54: hobbies and Harvard\n\nReflecting on my experience with hobbies. It's been a journey with Harvard, learning about hobbies.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "career"
+    ],
+    "entities": [
+      "Harvard",
+      "Microsoft"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2025-04-03T00:22:03.291426-04:00"
+  },
+  {
+    "id": "c3d12b1b-45cf-45af-b868-7185042ba1bb",
+    "title": "Entry 55: reflection and OpenAI",
+    "content": "Entry 55: reflection and OpenAI\n\nToday I learned about reflection and it made me think about OpenAI. reflection was particularly interesting.\n\nKeywords: ",
+    "topics": [
+      "reflection",
+      "work"
+    ],
+    "entities": [
+      "OpenAI",
+      "Harvard",
+      "Google"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "reflection",
+    "created_at": "2025-03-12T00:22:03.291646-04:00"
+  },
+  {
+    "id": "9c633ade-895a-4c71-a160-4eb775af2766",
+    "title": "Entry 56: travel and MIT",
+    "content": "Entry 56: travel and MIT\n\nToday I learned about travel and it made me think about MIT. meditation was particularly interesting.\n\nKeywords: adventure, destination, exercise, meditation",
+    "topics": [
+      "travel",
+      "hobbies",
+      "health"
+    ],
+    "entities": [
+      "MIT"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "adventure",
+      "destination",
+      "exercise",
+      "meditation"
+    ],
+    "category": "travel",
+    "created_at": "2024-10-06T00:22:03.29186-04:00"
+  },
+  {
+    "id": "d752c404-acd3-4b64-984f-b972099131b5",
+    "title": "Entry 57: hobbies and Jane Smith",
+    "content": "Entry 57: hobbies and Jane Smith\n\nReflecting on my experience with hobbies. It's been a journey with Jane Smith, learning about hobbies.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "mindfulness"
+    ],
+    "entities": [
+      "Jane Smith"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-10-12T00:22:03.292082-04:00"
+  },
+  {
+    "id": "783dd6a5-8ec0-4d9b-acef-bb2fd39c9d05",
+    "title": "Entry 58: hobbies and Stanford",
+    "content": "Entry 58: hobbies and Stanford\n\nToday I learned about hobbies and it made me think about Stanford. hobbies was particularly interesting.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "goals",
+      "family"
+    ],
+    "entities": [
+      "Stanford"
+    ],
+    "sentiment": "negative",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2025-05-14T00:22:03.292309-04:00"
+  },
+  {
+    "id": "3f274d83-c2ff-4c5c-b08d-46194f12698f",
+    "title": "Entry 59: relationships and Google",
+    "content": "Entry 59: relationships and Google\n\nHad a great conversation with relationships about Google. We discussed how automation impacts our daily lives.\n\nKeywords: communication, friendship, schedule, automation",
+    "topics": [
+      "relationships",
+      "productivity"
+    ],
+    "entities": [
+      "Google",
+      "Harvard"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "communication",
+      "friendship",
+      "schedule",
+      "automation"
+    ],
+    "category": "relationships",
+    "created_at": "2024-09-09T00:22:03.29267-04:00"
+  },
+  {
+    "id": "38f01af6-e932-4fa0-adfb-af5baeb7b302",
+    "title": "Entry 60: health and Harvard",
+    "content": "Entry 60: health and Harvard\n\nToday I learned about health and it made me think about Harvard. meditation was particularly interesting.\n\nKeywords: exercise, meditation",
+    "topics": [
+      "health",
+      "family"
+    ],
+    "entities": [
+      "Harvard"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "exercise",
+      "meditation"
+    ],
+    "category": "health",
+    "created_at": "2025-02-02T23:22:03.293086-05:00"
+  },
+  {
+    "id": "53222712-bc74-4179-bc31-63aeb70feda1",
+    "title": "Entry 61: career and Stanford",
+    "content": "Entry 61: career and Stanford\n\nWorking on career project with Stanford. The main challenge is career but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "career"
+    ],
+    "entities": [
+      "Stanford",
+      "OpenAI",
+      "Google"
+    ],
+    "sentiment": "negative",
+    "keywords": [],
+    "category": "career",
+    "created_at": "2024-09-21T00:22:03.293657-04:00"
+  },
+  {
+    "id": "5800401b-02ee-4f95-bf42-8655385bd714",
+    "title": "Entry 62: technology and MIT",
+    "content": "Entry 62: technology and MIT\n\nWorking on technology project with MIT. The main challenge is digital but I'm making progress.\n\nKeywords: digital, innovation",
+    "topics": [
+      "technology",
+      "career",
+      "hobbies"
+    ],
+    "entities": [
+      "MIT"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "digital",
+      "innovation"
+    ],
+    "category": "technology",
+    "created_at": "2024-07-06T00:22:03.294015-04:00"
+  },
+  {
+    "id": "c52fb811-a975-4715-b828-6157636baa7b",
+    "title": "Entry 63: family and Oxford",
+    "content": "Entry 63: family and Oxford\n\nVisited family and met Oxford. The exploration experience was really memorable.\n\nKeywords: destination, exploration",
+    "topics": [
+      "family",
+      "work",
+      "travel"
+    ],
+    "entities": [
+      "Oxford",
+      "Amazon",
+      "OpenAI"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "destination",
+      "exploration"
+    ],
+    "category": "family",
+    "created_at": "2025-02-28T23:22:03.294503-05:00"
+  },
+  {
+    "id": "80569552-046b-4671-8491-26d34776fd36",
+    "title": "Entry 64: hobbies and San Francisco",
+    "content": "Entry 64: hobbies and San Francisco\n\nWorking on hobbies project with San Francisco. The main challenge is hobbies but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "hobbies"
+    ],
+    "entities": [
+      "San Francisco"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-11-18T23:22:03.29489-05:00"
+  },
+  {
+    "id": "825aebb4-677c-43dd-91d9-ed1923581fd0",
+    "title": "Entry 65: technology and OpenAI",
+    "content": "Entry 65: technology and OpenAI\n\nVisited technology and met OpenAI. The digital experience was really memorable.\n\nKeywords: software, digital",
+    "topics": [
+      "technology"
+    ],
+    "entities": [
+      "OpenAI",
+      "Microsoft"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "software",
+      "digital"
+    ],
+    "category": "technology",
+    "created_at": "2025-01-07T23:22:03.295288-05:00"
+  },
+  {
+    "id": "45e1b733-ca13-4bef-849a-3dfe4df99135",
+    "title": "Entry 66: goals and Microsoft",
+    "content": "Entry 66: goals and Microsoft\n\nReflecting on my experience with goals. It's been a journey with Microsoft, learning about fitness.\n\nKeywords: wellness, fitness",
+    "topics": [
+      "goals",
+      "health"
+    ],
+    "entities": [
+      "Microsoft"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "wellness",
+      "fitness"
+    ],
+    "category": "goals",
+    "created_at": "2025-05-01T00:22:03.295668-04:00"
+  },
+  {
+    "id": "b673441e-16b7-45c0-a800-6a62ce781e6b",
+    "title": "Entry 67: health and Google",
+    "content": "Entry 67: health and Google\n\nToday I learned about health and it made me think about Google. fitness was particularly interesting.\n\nKeywords: wellness, fitness",
+    "topics": [
+      "health",
+      "learning",
+      "work"
+    ],
+    "entities": [
+      "Google"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "wellness",
+      "fitness"
+    ],
+    "category": "health",
+    "created_at": "2025-02-22T23:22:03.296131-05:00"
+  },
+  {
+    "id": "2f63def7-b191-433a-9692-69790cc83402",
+    "title": "Entry 68: work and MIT",
+    "content": "Entry 68: work and MIT\n\nToday I learned about work and it made me think about MIT. work was particularly interesting.\n\nKeywords: ",
+    "topics": [
+      "work",
+      "goals"
+    ],
+    "entities": [
+      "MIT"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "work",
+    "created_at": "2024-08-25T00:22:03.296679-04:00"
+  },
+  {
+    "id": "9220b908-4b3a-4c6d-a6fc-c4d6a3312386",
+    "title": "Entry 69: health and New York",
+    "content": "Entry 69: health and New York\n\nHad a great conversation with health about New York. We discussed how fitness impacts our daily lives.\n\nKeywords: exercise, fitness",
+    "topics": [
+      "health",
+      "reflection"
+    ],
+    "entities": [
+      "New York",
+      "Google"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "exercise",
+      "fitness"
+    ],
+    "category": "health",
+    "created_at": "2025-03-22T00:22:03.297197-04:00"
+  },
+  {
+    "id": "0432a912-1441-4433-a86e-0e5fc2fc74ea",
+    "title": "Entry 70: goals and Oxford",
+    "content": "Entry 70: goals and Oxford\n\nHad a great conversation with goals about Oxford. We discussed how friendship impacts our daily lives.\n\nKeywords: communication, friendship",
+    "topics": [
+      "goals",
+      "relationships"
+    ],
+    "entities": [
+      "Oxford",
+      "Microsoft"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "communication",
+      "friendship"
+    ],
+    "category": "goals",
+    "created_at": "2025-01-10T23:22:03.297516-05:00"
+  },
+  {
+    "id": "00f0a6a3-7c34-4708-b76b-640e09823576",
+    "title": "Entry 71: hobbies and San Francisco",
+    "content": "Entry 71: hobbies and San Francisco\n\nWorking on hobbies project with San Francisco. The main challenge is hobbies but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "creativity",
+      "reflection"
+    ],
+    "entities": [
+      "San Francisco"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-10-09T00:22:03.297995-04:00"
+  },
+  {
+    "id": "f75d0848-46ce-4566-b52f-7d00388c3989",
+    "title": "Entry 72: mindfulness and New York",
+    "content": "Entry 72: mindfulness and New York\n\nWorking on mindfulness project with New York. The main challenge is fitness but I'm making progress.\n\nKeywords: fitness, exercise",
+    "topics": [
+      "mindfulness",
+      "health",
+      "work"
+    ],
+    "entities": [
+      "New York"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "fitness",
+      "exercise"
+    ],
+    "category": "mindfulness",
+    "created_at": "2024-09-25T00:22:03.298342-04:00"
+  },
+  {
+    "id": "f2e2cff3-7792-4006-9ffa-f46a0680d2e4",
+    "title": "Entry 73: relationships and MIT",
+    "content": "Entry 73: relationships and MIT\n\nReflecting on my experience with relationships. It's been a journey with MIT, learning about trust.\n\nKeywords: communication, trust",
+    "topics": [
+      "relationships"
+    ],
+    "entities": [
+      "MIT"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "communication",
+      "trust"
+    ],
+    "category": "relationships",
+    "created_at": "2024-10-19T00:22:03.298642-04:00"
+  },
+  {
+    "id": "91b92a1e-a068-496e-b772-8145501f90b6",
+    "title": "Entry 74: goals and Harvard",
+    "content": "Entry 74: goals and Harvard\n\nReflecting on my experience with goals. It's been a journey with Harvard, learning about goals.\n\nKeywords: ",
+    "topics": [
+      "goals",
+      "hobbies"
+    ],
+    "entities": [
+      "Harvard"
+    ],
+    "sentiment": "negative",
+    "keywords": [],
+    "category": "goals",
+    "created_at": "2024-07-09T00:22:03.298927-04:00"
+  },
+  {
+    "id": "7e6e9fae-64a2-4e05-b1e4-59dcff8275f1",
+    "title": "Entry 75: finance and Jane Smith",
+    "content": "Entry 75: finance and Jane Smith\n\nWorking on finance project with Jane Smith. The main challenge is tasks but I'm making progress.\n\nKeywords: tasks, efficiency",
+    "topics": [
+      "finance",
+      "learning",
+      "productivity"
+    ],
+    "entities": [
+      "Jane Smith"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "tasks",
+      "efficiency"
+    ],
+    "category": "finance",
+    "created_at": "2024-10-14T00:22:03.299196-04:00"
+  },
+  {
+    "id": "6d923cea-0f86-4e34-866d-8708ecc5a1ff",
+    "title": "Entry 76: goals and Microsoft",
+    "content": "Entry 76: goals and Microsoft\n\nHad a great conversation with goals about Microsoft. We discussed how goals impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "goals",
+      "reflection",
+      "finance"
+    ],
+    "entities": [
+      "Microsoft",
+      "Google",
+      "Cambridge"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "goals",
+    "created_at": "2024-09-17T00:22:03.299496-04:00"
+  },
+  {
+    "id": "1a1574a5-452e-4c0b-9c85-a0d8f2bb1675",
+    "title": "Entry 77: family and Cambridge",
+    "content": "Entry 77: family and Cambridge\n\nWorking on family project with Cambridge. The main challenge is family but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "family"
+    ],
+    "entities": [
+      "Cambridge"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "family",
+    "created_at": "2025-04-28T00:22:03.299777-04:00"
+  },
+  {
+    "id": "9b35edbb-bc53-452f-b5db-5f064bd33338",
+    "title": "Entry 78: reflection and MIT",
+    "content": "Entry 78: reflection and MIT\n\nVisited reflection and met MIT. The reflection experience was really memorable.\n\nKeywords: ",
+    "topics": [
+      "reflection",
+      "work",
+      "career"
+    ],
+    "entities": [
+      "MIT"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "reflection",
+    "created_at": "2024-10-19T00:22:03.300052-04:00"
+  },
+  {
+    "id": "671b4156-0d0a-4797-b9e5-0ce77fe59f0d",
+    "title": "Entry 79: creativity and San Francisco",
+    "content": "Entry 79: creativity and San Francisco\n\nWorking on creativity project with San Francisco. The main challenge is creativity but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "creativity",
+      "hobbies",
+      "learning"
+    ],
+    "entities": [
+      "San Francisco"
+    ],
+    "sentiment": "negative",
+    "keywords": [],
+    "category": "creativity",
+    "created_at": "2025-05-14T00:22:03.300329-04:00"
+  },
+  {
+    "id": "4fda8508-2bed-4fe5-9ec4-9a0ca2b5ed01",
+    "title": "Entry 80: work and Stanford",
+    "content": "Entry 80: work and Stanford\n\nReflecting on my experience with work. It's been a journey with Stanford, learning about nutrition.\n\nKeywords: fitness, nutrition, automation, efficiency",
+    "topics": [
+      "work",
+      "health",
+      "productivity"
+    ],
+    "entities": [
+      "Stanford"
+    ],
+    "sentiment": "mixed",
+    "keywords": [
+      "fitness",
+      "nutrition",
+      "automation",
+      "efficiency"
+    ],
+    "category": "work",
+    "created_at": "2024-07-06T00:22:03.300616-04:00"
+  },
+  {
+    "id": "8d7046e3-e231-4a73-8ff0-2f15c961310b",
+    "title": "Entry 81: finance and Stanford",
+    "content": "Entry 81: finance and Stanford\n\nReflecting on my experience with finance. It's been a journey with Stanford, learning about hardware.\n\nKeywords: hardware, AI",
+    "topics": [
+      "finance",
+      "technology"
+    ],
+    "entities": [
+      "Stanford",
+      "MIT"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "hardware",
+      "AI"
+    ],
+    "category": "finance",
+    "created_at": "2025-01-17T23:22:03.301102-05:00"
+  },
+  {
+    "id": "62f3c755-e9d8-4472-a4ef-23e287d0ba78",
+    "title": "Entry 82: hobbies and Harvard",
+    "content": "Entry 82: hobbies and Harvard\n\nReflecting on my experience with hobbies. It's been a journey with Harvard, learning about hobbies.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "creativity"
+    ],
+    "entities": [
+      "Harvard",
+      "San Francisco"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-08-07T00:22:03.301382-04:00"
+  },
+  {
+    "id": "f46d8d7c-729f-419a-a4b6-b420bc9cfa74",
+    "title": "Entry 83: technology and Stanford",
+    "content": "Entry 83: technology and Stanford\n\nToday I learned about technology and it made me think about Stanford. hardware was particularly interesting.\n\nKeywords: hardware, innovation",
+    "topics": [
+      "technology",
+      "learning",
+      "work"
+    ],
+    "entities": [
+      "Stanford",
+      "John Doe"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "hardware",
+      "innovation"
+    ],
+    "category": "technology",
+    "created_at": "2025-06-16T00:22:03.301651-04:00"
+  },
+  {
+    "id": "07be152d-8227-420f-8335-3429c40f8af4",
+    "title": "Entry 84: creativity and San Francisco",
+    "content": "Entry 84: creativity and San Francisco\n\nReflecting on my experience with creativity. It's been a journey with San Francisco, learning about destination.\n\nKeywords: destination, culture",
+    "topics": [
+      "creativity",
+      "travel",
+      "career"
+    ],
+    "entities": [
+      "San Francisco",
+      "Apple",
+      "Oxford"
+    ],
+    "sentiment": "negative",
+    "keywords": [
+      "destination",
+      "culture"
+    ],
+    "category": "creativity",
+    "created_at": "2024-07-20T00:22:03.301985-04:00"
+  },
+  {
+    "id": "9c073980-0c6a-4d65-b6ae-07696da87e90",
+    "title": "Entry 85: technology and Harvard",
+    "content": "Entry 85: technology and Harvard\n\nToday I learned about technology and it made me think about Harvard. digital was particularly interesting.\n\nKeywords: innovation, digital",
+    "topics": [
+      "technology",
+      "learning"
+    ],
+    "entities": [
+      "Harvard",
+      "Google"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "innovation",
+      "digital"
+    ],
+    "category": "technology",
+    "created_at": "2024-07-04T00:22:03.302281-04:00"
+  },
+  {
+    "id": "a62ff0cd-d33b-4826-9c78-24ef6f68ea94",
+    "title": "Entry 86: relationships and Stanford",
+    "content": "Entry 86: relationships and Stanford\n\nWorking on relationships project with Stanford. The main challenge is love but I'm making progress.\n\nKeywords: trust, love",
+    "topics": [
+      "relationships"
+    ],
+    "entities": [
+      "Stanford"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "trust",
+      "love"
+    ],
+    "category": "relationships",
+    "created_at": "2024-09-03T00:22:03.302557-04:00"
+  },
+  {
+    "id": "0e7d5210-4d42-4be1-a973-6ad2975be218",
+    "title": "Entry 87: hobbies and Tesla",
+    "content": "Entry 87: hobbies and Tesla\n\nWorking on hobbies project with Tesla. The main challenge is hobbies but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "hobbies"
+    ],
+    "entities": [
+      "Tesla",
+      "New York"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2024-10-20T00:22:03.302834-04:00"
+  },
+  {
+    "id": "690c7267-bd63-4381-9939-13f849a580fb",
+    "title": "Entry 88: hobbies and Microsoft",
+    "content": "Entry 88: hobbies and Microsoft\n\nToday I learned about hobbies and it made me think about Microsoft. hobbies was particularly interesting.\n\nKeywords: ",
+    "topics": [
+      "hobbies",
+      "goals",
+      "family"
+    ],
+    "entities": [
+      "Microsoft",
+      "OpenAI",
+      "John Doe"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2025-05-18T00:22:03.303115-04:00"
+  },
+  {
+    "id": "391d0e0d-294d-425b-9d91-521d83914652",
+    "title": "Entry 89: reflection and Apple",
+    "content": "Entry 89: reflection and Apple\n\nHad a great conversation with reflection about Apple. We discussed how reflection impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "reflection"
+    ],
+    "entities": [
+      "Apple"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "reflection",
+    "created_at": "2025-05-05T00:22:03.303379-04:00"
+  },
+  {
+    "id": "0d4f090c-1c29-409d-916c-36eda9f25bf3",
+    "title": "Entry 90: productivity and Oxford",
+    "content": "Entry 90: productivity and Oxford\n\nWorking on productivity project with Oxford. The main challenge is automation but I'm making progress.\n\nKeywords: automation, tasks",
+    "topics": [
+      "productivity",
+      "mindfulness",
+      "learning"
+    ],
+    "entities": [
+      "Oxford",
+      "Harvard"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "automation",
+      "tasks"
+    ],
+    "category": "productivity",
+    "created_at": "2025-04-13T00:22:03.303802-04:00"
+  },
+  {
+    "id": "52b004f2-7bc3-4b5b-9375-efeb406d89df",
+    "title": "Entry 91: learning and Oxford",
+    "content": "Entry 91: learning and Oxford\n\nReflecting on my experience with learning. It's been a journey with Oxford, learning about learning.\n\nKeywords: ",
+    "topics": [
+      "learning"
+    ],
+    "entities": [
+      "Oxford"
+    ],
+    "sentiment": "negative",
+    "keywords": [],
+    "category": "learning",
+    "created_at": "2025-03-30T00:22:03.304048-04:00"
+  },
+  {
+    "id": "ce486b1f-fe9f-45f0-9519-85a7aa6de27c",
+    "title": "Entry 92: mindfulness and Stanford",
+    "content": "Entry 92: mindfulness and Stanford\n\nVisited mindfulness and met Stanford. The tasks experience was really memorable.\n\nKeywords: tasks, efficiency",
+    "topics": [
+      "mindfulness",
+      "productivity"
+    ],
+    "entities": [
+      "Stanford"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "tasks",
+      "efficiency"
+    ],
+    "category": "mindfulness",
+    "created_at": "2025-01-17T23:22:03.304283-05:00"
+  },
+  {
+    "id": "4e3ed036-1db3-4ad1-b96d-7b8f7111542d",
+    "title": "Entry 93: reflection and Google",
+    "content": "Entry 93: reflection and Google\n\nToday I learned about reflection and it made me think about Google. reflection was particularly interesting.\n\nKeywords: ",
+    "topics": [
+      "reflection"
+    ],
+    "entities": [
+      "Google",
+      "San Francisco",
+      "Tesla"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "reflection",
+    "created_at": "2025-01-02T23:22:03.304714-05:00"
+  },
+  {
+    "id": "9d2fb666-0b1d-433e-969e-35a7709d5893",
+    "title": "Entry 94: creativity and Harvard",
+    "content": "Entry 94: creativity and Harvard\n\nHad a great conversation with creativity about Harvard. We discussed how creativity impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "creativity"
+    ],
+    "entities": [
+      "Harvard",
+      "San Francisco"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "creativity",
+    "created_at": "2025-04-17T00:22:03.30497-04:00"
+  },
+  {
+    "id": "ff54b03a-c011-48b1-b529-681eacc5f4cd",
+    "title": "Entry 95: finance and Oxford",
+    "content": "Entry 95: finance and Oxford\n\nHad a great conversation with finance about Oxford. We discussed how finance impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "finance",
+      "family"
+    ],
+    "entities": [
+      "Oxford",
+      "Cambridge",
+      "Tesla"
+    ],
+    "sentiment": "mixed",
+    "keywords": [],
+    "category": "finance",
+    "created_at": "2024-07-25T00:22:03.305212-04:00"
+  },
+  {
+    "id": "28c45033-0616-4ceb-a6fa-1d2f4b849164",
+    "title": "Entry 96: finance and John Doe",
+    "content": "Entry 96: finance and John Doe\n\nVisited finance and met John Doe. The digital experience was really memorable.\n\nKeywords: nutrition, exercise, innovation, digital",
+    "topics": [
+      "finance",
+      "health",
+      "technology"
+    ],
+    "entities": [
+      "John Doe",
+      "Tesla"
+    ],
+    "sentiment": "positive",
+    "keywords": [
+      "nutrition",
+      "exercise",
+      "innovation",
+      "digital"
+    ],
+    "category": "finance",
+    "created_at": "2024-07-19T00:22:03.305448-04:00"
+  },
+  {
+    "id": "a67b71a7-1922-4a8b-926e-4d291216840b",
+    "title": "Entry 97: relationships and Apple",
+    "content": "Entry 97: relationships and Apple\n\nReflecting on my experience with relationships. It's been a journey with Apple, learning about communication.\n\nKeywords: love, communication",
+    "topics": [
+      "relationships"
+    ],
+    "entities": [
+      "Apple",
+      "John Doe",
+      "Amazon"
+    ],
+    "sentiment": "neutral",
+    "keywords": [
+      "love",
+      "communication"
+    ],
+    "category": "relationships",
+    "created_at": "2024-09-07T00:22:03.30573-04:00"
+  },
+  {
+    "id": "ee71b478-6749-4e7c-8bd5-a759796641ac",
+    "title": "Entry 98: hobbies and OpenAI",
+    "content": "Entry 98: hobbies and OpenAI\n\nWorking on hobbies project with OpenAI. The main challenge is hobbies but I'm making progress.\n\nKeywords: ",
+    "topics": [
+      "hobbies"
+    ],
+    "entities": [
+      "OpenAI",
+      "San Francisco",
+      "Apple"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "hobbies",
+    "created_at": "2025-04-23T00:22:03.306158-04:00"
+  },
+  {
+    "id": "585ddee0-6c9b-4d3f-b57d-3ce592a8b56c",
+    "title": "Entry 99: family and Oxford",
+    "content": "Entry 99: family and Oxford\n\nHad a great conversation with family about Oxford. We discussed how family impacts our daily lives.\n\nKeywords: ",
+    "topics": [
+      "family"
+    ],
+    "entities": [
+      "Oxford"
+    ],
+    "sentiment": "positive",
+    "keywords": [],
+    "category": "family",
+    "created_at": "2025-04-14T00:22:03.306413-04:00"
+  },
+  {
+    "id": "be0903cc-8c53-43ac-a826-36164c6b2d85",
+    "title": "Entry 100: mindfulness and Amazon",
+    "content": "Entry 100: mindfulness and Amazon\n\nToday I learned about mindfulness and it made me think about Amazon. mindfulness was particularly interesting.\n\nKeywords: ",
+    "topics": [
+      "mindfulness",
+      "finance"
+    ],
+    "entities": [
+      "Amazon",
+      "MIT"
+    ],
+    "sentiment": "neutral",
+    "keywords": [],
+    "category": "mindfulness",
+    "created_at": "2025-01-23T23:22:03.306698-05:00"
+  }
+]

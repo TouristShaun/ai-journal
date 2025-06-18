@@ -1,0 +1,72 @@
+Search Mode,Precision,Recall,F1 Score,NDCG,MRR,Avg Latency (ms),Test Cases
+classic,0.064,0.589,0.116,0.090,0.183,0.5,34
+vector,0.000,0.000,0.000,0.000,0.000,0.0,9
+hybrid,0.031,0.300,0.057,0.022,0.116,25.0,4
+
+Test Case Details
+Mode,Test ID,Query,Precision,Recall,Latency (ms),Expected Count,Actual Count
+hybrid,hybrid_keyword_semantic_0,exercise,0.04,0.40,23,5,47
+hybrid,hybrid_keyword_semantic_2,journey,0.02,0.20,27,5,50
+hybrid,hybrid_natural_0,How can I improve my productivity while working from home?,0.00,0.00,28,5,22
+hybrid,hybrid_natural_1,Tell me about recent technology innovations,0.00,0.00,28,5,22
+classic,classic_keyword_0,exercise,0.04,1.00,2,1,25
+classic,classic_keyword_2,journey,0.02,1.00,1,1,50
+classic,classic_keyword_4,meditation,0.04,1.00,1,1,26
+classic,classic_topic_hobbies,hobbies,0.09,0.60,1,5,32
+classic,classic_topic_mindfulness,mindfulness,0.03,0.20,0,5,29
+classic,classic_topic_travel,travel,0.11,0.60,0,5,28
+classic,classic_topic_goals,goals,0.00,0.00,2,5,44
+classic,classic_topic_relationships,relationships,0.11,0.60,0,5,27
+classic,classic_topic_finance,finance,0.04,0.20,0,5,26
+classic,classic_topic_creativity,creativity,0.11,0.80,0,5,36
+classic,classic_topic_work,work,0.02,0.20,2,5,50
+classic,classic_topic_health,health,0.07,0.60,1,5,43
+classic,classic_topic_learning,learning,0.02,0.20,1,5,50
+classic,classic_topic_family,family,0.10,0.60,1,5,31
+classic,classic_topic_career,career,0.07,0.40,0,5,30
+classic,classic_topic_technology,technology,0.12,0.60,0,5,26
+classic,classic_topic_productivity,productivity,0.05,0.20,0,5,20
+classic,classic_topic_reflection,reflection,0.02,0.20,1,5,50
+classic,classic_entity_Stanford,"""Stanford""",0.07,0.67,0,3,30
+classic,classic_entity_Tesla,"""Tesla""",0.00,0.00,0,3,30
+classic,classic_entity_San_Francisco,"""San Francisco""",0.05,0.33,0,3,22
+classic,classic_entity_Jane_Smith,"""Jane Smith""",0.07,0.67,0,3,30
+classic,classic_entity_Microsoft,"""Microsoft""",0.03,0.33,0,3,30
+classic,classic_entity_Cambridge,"""Cambridge""",0.00,0.00,0,3,32
+classic,classic_entity_Oxford,"""Oxford""",0.06,0.67,0,3,31
+classic,classic_entity_Google,"""Google""",0.04,0.33,0,3,28
+classic,classic_entity_OpenAI,"""OpenAI""",0.08,0.67,0,3,26
+classic,classic_entity_New_York,"""New York""",0.09,1.00,0,3,34
+classic,classic_entity_Harvard,"""Harvard""",0.03,0.33,0,3,29
+classic,classic_entity_John_Doe,"""John Doe""",0.11,1.00,0,3,27
+classic,classic_entity_Apple,"""Apple""",0.06,0.67,1,3,34
+classic,classic_entity_MIT,"""MIT""",0.00,0.00,0,3,22
+classic,classic_entity_Amazon,"""Amazon""",0.09,1.00,0,3,32
+classic,classic_filtered_recent,,0.10,1.00,2,5,48
+vector,vector_similar_0,"Entry 1: work and Stanford
+
+Had a great conversation with work about Stanford. We discussed how work",0.00,0.00,335,5,22
+vector,vector_similar_1,"Entry 2: career and Google
+
+Visited career and met Google. The career experience was really memorabl",0.00,0.00,29,5,22
+vector,vector_similar_2,"Entry 3: travel and John Doe
+
+Today I learned about travel and it made me think about John Doe. jour",0.00,0.00,30,5,22
+vector,vector_explore_0,"Entry 1: work and Stanford
+
+Had a great conversation with work about Stanford. We discussed how work",0.00,0.00,26,5,22
+vector,vector_explore_1,"Entry 2: career and Google
+
+Visited career and met Google. The career experience was really memorabl",0.00,0.00,22,5,22
+vector,vector_explore_2,"Entry 3: travel and John Doe
+
+Today I learned about travel and it made me think about John Doe. jour",0.00,0.00,24,5,22
+vector,vector_contrast_0,"Entry 3: travel and John Doe
+
+Today I learned about travel and it made me think about John Doe. jour",0.00,0.00,27,5,22
+vector,vector_contrast_1,"Entry 1: work and Stanford
+
+Had a great conversation with work about Stanford. We discussed how work",0.00,0.00,22,5,22
+vector,vector_contrast_2,"Entry 2: career and Google
+
+Visited career and met Google. The career experience was really memorabl",0.00,0.00,21,5,22

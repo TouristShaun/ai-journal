@@ -87,3 +87,23 @@ lint:
 format:
 	cd backend && go fmt ./...
 	cd frontend && npm run format
+
+# Evaluation commands
+eval-generate:
+	@echo "Generating test data for evaluation..."
+	cd backend && go run cmd/evaluate/main.go -cmd generate -size 100
+
+eval-run:
+	@echo "Running search evaluation..."
+	cd backend && go run cmd/evaluate/main.go -cmd evaluate -mode all
+
+eval-report:
+	@echo "Generating evaluation report..."
+	cd backend && go run cmd/evaluate/main.go -cmd report -format html
+
+eval-full: eval-generate eval-run eval-report
+	@echo "Full evaluation complete. Check evaluation_results/reports/ for the report."
+
+eval-clean:
+	rm -rf backend/evaluation_results/data/*
+	rm -rf backend/evaluation_results/reports/*

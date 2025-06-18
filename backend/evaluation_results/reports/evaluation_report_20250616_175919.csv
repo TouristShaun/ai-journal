@@ -1,0 +1,71 @@
+Search Mode,Precision,Recall,F1 Score,NDCG,MRR,Avg Latency (ms),Test Cases
+classic,0.124,0.619,0.207,0.193,0.343,0.5,34
+vector,0.000,0.000,0.000,0.000,0.000,0.0,9
+hybrid,0.029,0.200,0.050,0.192,1.000,20.0,3
+
+Test Case Details
+Mode,Test ID,Query,Precision,Recall,Latency (ms),Expected Count,Actual Count
+vector,vector_similar_0,"Entry 2: reflection and Microsoft
+
+Reflecting on my experience with reflection. It's been a journey ",0.00,0.00,54,5,22
+vector,vector_similar_1,"Entry 3: travel and Google
+
+Reflecting on my experience with travel. It's been a journey with Google",0.00,0.00,30,5,22
+vector,vector_similar_2,"Entry 1: finance and Jane Smith
+
+Visited finance and met Jane Smith. The finance experience was real",0.00,0.00,26,5,22
+vector,vector_explore_0,"Entry 1: finance and Jane Smith
+
+Visited finance and met Jane Smith. The finance experience was real",0.00,0.00,24,5,22
+vector,vector_explore_1,"Entry 2: reflection and Microsoft
+
+Reflecting on my experience with reflection. It's been a journey ",0.00,0.00,20,5,22
+vector,vector_explore_2,"Entry 3: travel and Google
+
+Reflecting on my experience with travel. It's been a journey with Google",0.00,0.00,20,5,22
+vector,vector_contrast_0,"Entry 1: finance and Jane Smith
+
+Visited finance and met Jane Smith. The finance experience was real",0.00,0.00,20,5,22
+vector,vector_contrast_1,"Entry 2: reflection and Microsoft
+
+Reflecting on my experience with reflection. It's been a journey ",0.00,0.00,19,5,22
+vector,vector_contrast_2,"Entry 3: travel and Google
+
+Reflecting on my experience with travel. It's been a journey with Google",0.00,0.00,18,5,22
+hybrid,hybrid_keyword_semantic_2,culture,0.03,0.20,20,5,35
+hybrid,hybrid_natural_0,How can I improve my productivity while working from home?,0.00,0.00,23,5,22
+hybrid,hybrid_natural_1,Tell me about recent technology innovations,0.00,0.00,22,5,22
+classic,classic_keyword_2,culture,0.08,1.00,1,1,13
+classic,classic_keyword_3,efficiency,0.08,1.00,0,1,12
+classic,classic_keyword_4,connection,0.11,1.00,0,1,9
+classic,classic_topic_travel,travel,0.25,0.80,1,5,16
+classic,classic_topic_career,career,0.18,0.60,0,5,17
+classic,classic_topic_mindfulness,mindfulness,0.00,0.00,0,5,18
+classic,classic_topic_learning,learning,0.02,0.20,1,5,50
+classic,classic_topic_health,health,0.14,0.60,1,5,21
+classic,classic_topic_creativity,creativity,0.00,0.00,0,5,16
+classic,classic_topic_hobbies,hobbies,0.21,0.60,0,5,14
+classic,classic_topic_work,work,0.02,0.20,2,5,50
+classic,classic_topic_family,family,0.18,0.60,0,5,17
+classic,classic_topic_technology,technology,0.08,0.20,0,5,12
+classic,classic_topic_reflection,reflection,0.04,0.40,1,5,50
+classic,classic_topic_goals,goals,0.10,0.60,2,5,31
+classic,classic_topic_finance,finance,0.23,0.60,1,5,13
+classic,classic_topic_productivity,productivity,0.13,0.40,1,5,15
+classic,classic_topic_relationships,relationships,0.08,0.20,0,5,12
+classic,classic_entity_Stanford,"""Stanford""",0.00,0.00,0,3,16
+classic,classic_entity_San_Francisco,"""San Francisco""",0.00,0.00,0,3,9
+classic,classic_entity_Apple,"""Apple""",0.11,0.67,0,3,19
+classic,classic_entity_Cambridge,"""Cambridge""",0.14,1.00,0,3,21
+classic,classic_entity_New_York,"""New York""",0.00,0.00,0,3,22
+classic,classic_entity_OpenAI,"""OpenAI""",0.08,0.33,0,3,13
+classic,classic_entity_Microsoft,"""Microsoft""",0.12,0.67,0,3,17
+classic,classic_entity_Harvard,"""Harvard""",0.10,0.33,0,3,10
+classic,classic_entity_Amazon,"""Amazon""",0.00,0.00,0,3,19
+classic,classic_entity_Tesla,"""Tesla""",0.13,0.67,0,3,15
+classic,classic_entity_MIT,"""MIT""",0.09,0.33,0,3,11
+classic,classic_entity_Google,"""Google""",0.12,0.67,0,3,17
+classic,classic_entity_John_Doe,"""John Doe""",0.23,1.00,0,3,13
+classic,classic_entity_Jane_Smith,"""Jane Smith""",0.18,1.00,0,3,17
+classic,classic_entity_Oxford,"""Oxford""",0.11,0.67,0,3,18
+classic,classic_filtered_recent,,0.14,1.00,2,5,36

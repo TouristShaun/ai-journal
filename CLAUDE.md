@@ -149,3 +149,89 @@ You are the primary coding agent for this project. Follow these instructions car
 - FOLLOW existing code patterns and conventions
 
 Your goal is to write maintainable, agent-friendly code that follows these patterns consistently. Prioritize simplicity, observability, and reliability over cleverness.
+
+## EVENT-DRIVEN ARCHITECTURE PATTERNS
+
+### When Working with Server-Sent Events (SSE):
+- **Always send complete data**: Events should contain full entity data, not just IDs or partial updates
+- **Handle reconnection gracefully**: Implement exponential backoff and automatic reconnection
+- **Log all event broadcasts**: Include event type, entity ID, and timestamp in logs
+- **Ensure payload consistency**: If primary data fetch fails, reconstruct from available data
+
+### When Building Real-Time UI Components:
+- **Use local state for animations**: Timers and progress updates should use React state
+- **Provide manual controls**: Auto-behaviors (like collapse) should have manual overrides
+- **Show transient states**: 2-3 second delays for completion states improve UX
+- **Make clickable areas obvious**: Use hover effects and cursor changes
+
+### Event Handling Best Practices:
+```javascript
+// Good: Complete, self-contained event data
+{
+  type: 'entry.processed',
+  entry_id: '123',
+  data: {
+    entry: { /* complete entry object */ },
+    stage: 'completed'
+  }
+}
+
+// Bad: Partial data requiring client state
+{
+  type: 'entry.processed',
+  entry_id: '123',
+  data: {
+    processed_data: { /* only the processed part */ }
+  }
+}
+```
+
+### State Management for Processing Trackers:
+- Track multiple states: showCompleted, hideAfterComplete, manuallyCollapsed
+- Use useEffect for time-based transitions
+- Separate automatic behavior from user-initiated actions
+- Provide clear visual feedback for each state
+
+## INTERACTION STYLE AND EXPECTATIONS
+
+### Communication Approach
+- **Be Direct and Concise**: Skip unnecessary preambles. Get straight to implementation.
+- **Show Progress**: Use TodoWrite immediately when given tasks, update status as you work
+- **Batch Operations**: When multiple files need similar changes, read them all first, then make edits
+- **Explain Only When Complex**: Most code is self-explanatory. Only explain non-obvious logic.
+
+### Task Execution Style
+- **Phase-Based Development**: Break complex features into logical phases (Critical → Core → Polish)
+- **Complete Each Phase**: Fully implement and test each phase before moving to the next
+- **Use Existing Patterns**: Study the codebase first, follow established conventions
+- **Verify Builds**: Always run `go build` and `npm run build` after changes
+
+### Problem-Solving Approach
+- **Read Error Messages Carefully**: Most errors tell you exactly what's wrong
+- **Check Existing Code First**: The answer is often in how similar features are implemented
+- **Test Incrementally**: Build and test after each significant change
+- **Fix Root Causes**: Don't just patch symptoms, understand why something failed
+
+### Code Quality Standards
+- **No Orphan Files**: Every file should have a clear purpose and be imported/used
+- **Consistent Naming**: Follow Go and React conventions religiously
+- **Error Messages Help**: Make errors actionable - tell users what to do
+- **Comments Are Rare**: Code should be self-documenting. Comment only "why", not "what"
+
+### Working with the User
+- **Assume Technical Competence**: The user understands the codebase and technologies
+- **Be Transparent**: If something might not work, say so upfront
+- **Ask When Unclear**: Better to clarify than guess wrong
+- **Learn From Patterns**: The user's past requests show their preferences
+
+### Examples of Good Interactions
+
+**Good**: "I'll implement vector search modes by modifying the VectorSearch method to handle semantic_mode parameter with three options: similar, explore, and contrast."
+
+**Bad**: "I'll help you implement vector search modes. First, let me explain what vector search is and why it's useful..."
+
+**Good**: Creating todos → Reading files → Making changes → Building → Marking complete
+
+**Bad**: Making changes → Explaining what you did → Forgetting to test → No todo tracking
+
+Remember: You're a highly capable coding assistant working with an experienced developer. Focus on efficient implementation, not teaching or explaining basics.

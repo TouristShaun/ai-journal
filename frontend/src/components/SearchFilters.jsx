@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Search, Star, Calendar, Tag } from 'lucide-react';
+import SearchSuggestions from './SearchSuggestions';
 
 function SearchFilters({ collections, onSearch, searchParams }) {
   const [localParams, setLocalParams] = useState({
@@ -62,6 +63,13 @@ function SearchFilters({ collections, onSearch, searchParams }) {
           <span>Favorites</span>
         </button>
       </div>
+
+      {/* Search Suggestions */}
+      {!localParams.query && (
+        <SearchSuggestions 
+          onSelectSuggestion={(text) => setLocalParams(prev => ({ ...prev, query: text }))}
+        />
+      )}
 
       {/* Collections */}
       <div>

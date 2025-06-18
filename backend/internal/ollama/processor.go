@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"log"
 	"strings"
-	
+
 	"github.com/journal/internal/models"
 )
 
@@ -20,12 +20,12 @@ func NewProcessor(client *Client) *Processor {
 
 // JournalAnalysis represents the structured output from Qwen
 type JournalAnalysis struct {
-	Summary      string           `json:"summary"`
-	Entities     []string         `json:"entities"`
-	Topics       []string         `json:"topics"`
-	Sentiment    string           `json:"sentiment"`
-	URLs         []URLToFetch     `json:"urls_to_fetch"`
-	Metadata     map[string]any   `json:"metadata"`
+	Summary   string         `json:"summary"`
+	Entities  []string       `json:"entities"`
+	Topics    []string       `json:"topics"`
+	Sentiment string         `json:"sentiment"`
+	URLs      []URLToFetch   `json:"urls_to_fetch"`
+	Metadata  map[string]any `json:"metadata"`
 }
 
 type URLToFetch struct {
@@ -59,24 +59,39 @@ func (p *Processor) ProcessJournalEntry(content string) (*models.ProcessedData, 
 		},
 		"required": ["summary", "entities", "topics", "sentiment", "urls_to_fetch", "metadata"]
 	}`)
-	
+
 	prompt := fmt.Sprintf(`Analyze the following journal entry and extract structured information according to the provided schema.
-	
-Journal Entry:
+
+Example Analysis:
+Journal Entry: "Had an amazing meeting with Sarah Chen from TechCorp today at their Seattle office. We discussed the new AI project and she seemed really excited about our proposal. Check out their recent blog post about ML trends: https://techcorp.com/blog/ml-2024. Feeling optimistic about this partnership!"
+
+Expected Output:
+- Summary: "Successful meeting with TechCorp representative about AI project proposal, positive reception"
+- Entities: ["Sarah Chen" (person), "TechCorp" (organization), "Seattle" (place)]
+- Topics: ["business meeting", "AI project", "partnership", "machine learning"]
+- Sentiment: "positive"
+- URLs: ["https://techcorp.com/blog/ml-2024"]
+
+Now analyze this journal entry:
 %s
 
 Extract:
-1. A concise summary
-2. Named entities (people, places, organizations, products)
-3. Main topics or themes
-4. Overall sentiment
+1. A concise summary (2-3 sentences max)
+2. Named entities (people, places, organizations, products) - be specific
+3. Main topics or themes (3-5 most relevant)
+4. Overall sentiment (positive, negative, neutral, or mixed)
 5. Any URLs mentioned that would provide valuable context
 6. Additional metadata that might be useful for search and organization
 
-Be thorough and accurate in your analysis.`, content)
-	
+Important:
+- Keep summaries factual and concise
+- Extract full names when mentioned
+- Identify specific locations, not just general areas
+- For sentiment, consider the overall emotional tone
+- Only extract complete, valid URLs`, content)
+
 	request := ChatRequest{
-		Model: "qwen2.5:7b",
+		Model: "qwen3:8b",
 		Messages: []Message{
 			{Role: "user", Content: prompt},
 		},
@@ -86,39 +101,62 @@ Be thorough and accurate in your analysis.`, content)
 			Temperature: 0.3,
 		},
 	}
-	
+
 	response, err := p.client.Chat(request)
 	if err != nil {
 		return nil, fmt.Errorf("failed to process with Qwen: %w", err)
 	}
-	
+
+	// Log raw response for debugging
+	log.Printf("Raw Qwen response: %s", response.Message.Content)
+
 	var analysis JournalAnalysis
 	if err := json.Unmarshal([]byte(response.Message.Content), &analysis); err != nil {
+		log.Printf("Failed to parse JSON response: %v\nResponse was: %s", err, response.Message.Content)
 		return nil, fmt.Errorf("failed to parse Qwen response: %w", err)
 	}
-	
+
 	log.Printf("Processed journal entry: found %d entities, %d topics, %d URLs",
 		len(analysis.Entities), len(analysis.Topics), len(analysis.URLs))
-	
+
+	// Debug log entities
+	if len(analysis.Entities) > 0 {
+		log.Printf("Entities: %v", analysis.Entities)
+	} else {
+		log.Printf("No entities found in response")
+	}
+
 	// Convert to ProcessedData model
 	processedData := &models.ProcessedData{
-		Summary:   analysis.Summary,
-		Entities:  analysis.Entities,
-		Topics:    analysis.Topics,
-		Sentiment: analysis.Sentiment,
-		Metadata:  analysis.Metadata,
+		Summary:       analysis.Summary,
+		Entities:      analysis.Entities,
+		Topics:        analysis.Topics,
+		Sentiment:     analysis.Sentiment,
+		Metadata:      analysis.Metadata,
 		ExtractedURLs: make([]models.ExtractedURL, 0, len(analysis.URLs)),
 	}
-	
-	// URLs will be fetched by the MCP agent later
+
+	// Initialize metadata if nil
+	if processedData.Metadata == nil {
+		processedData.Metadata = make(map[string]any)
+	}
+
+	// Convert URLs to ExtractedURL format
 	for _, url := range analysis.URLs {
-		processedData.Metadata["url_"+url.URL] = map[string]string{
+		processedData.ExtractedURLs = append(processedData.ExtractedURLs, models.ExtractedURL{
+			URL:     url.URL,
+			Title:   url.Reason, // Use reason as temporary title
+			Content: "",         // Will be filled by MCP agent
+		})
+
+		// Also keep in metadata for backward compatibility
+		processedData.Metadata["url_"+url.URL] = map[string]interface{}{
 			"url":    url.URL,
 			"reason": url.Reason,
 			"status": "pending_fetch",
 		}
 	}
-	
+
 	return processedData, nil
 }
 
@@ -132,17 +170,17 @@ func (p *Processor) CreateEmbedding(entry models.JournalEntry) ([]float32, error
 		strings.Join(entry.ProcessedData.Entities, ", "),
 		entry.ProcessedData.Sentiment,
 	)
-	
+
 	// Add extracted URL content if available
 	for _, url := range entry.ProcessedData.ExtractedURLs {
 		embeddingText += fmt.Sprintf("\n\nFrom %s: %s", url.URL, url.Title)
 	}
-	
+
 	embeddings, err := p.client.CreateEmbedding("nomic-embed-text", embeddingText)
 	if err != nil {
 		return nil, fmt.Errorf("failed to create embedding: %w", err)
 	}
-	
+
 	return embeddings, nil
 }
 
@@ -153,9 +191,9 @@ func (p *Processor) ProcessWithSchema(ctx context.Context, prompt string, schema
 	if err != nil {
 		return "", fmt.Errorf("failed to marshal schema: %w", err)
 	}
-	
+
 	request := ChatRequest{
-		Model: "qwen2.5:7b",
+		Model: "qwen3:8b",
 		Messages: []Message{
 			{Role: "user", Content: prompt},
 		},
@@ -165,11 +203,11 @@ func (p *Processor) ProcessWithSchema(ctx context.Context, prompt string, schema
 			Temperature: 0.3,
 		},
 	}
-	
+
 	response, err := p.client.Chat(request)
 	if err != nil {
 		return "", fmt.Errorf("failed to process with Qwen: %w", err)
 	}
-	
+
 	return response.Message.Content, nil
 }

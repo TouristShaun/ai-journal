@@ -34,6 +34,8 @@ export const journalAPI = {
   toggleFavorite: (id) => client.call('journal.toggleFavorite', { id }),
   getProcessingLogs: (entryId) => client.call('journal.getProcessingLogs', { entry_id: entryId }),
   analyzeFailure: (entryId) => client.call('journal.analyzeFailure', { entry_id: entryId }),
+  retryProcessing: (entryId) => client.call('journal.retryProcessing', { entry_id: entryId }),
+  getSearchSuggestions: () => client.call('journal.getSearchSuggestions', {}),
 
   // Collections
   createCollection: (name, description) => 
@@ -43,4 +45,16 @@ export const journalAPI = {
     client.call('collection.addEntry', { entry_id: entryId, collection_id: collectionId }),
   removeFromCollection: (entryId, collectionId) => 
     client.call('collection.removeEntry', { entry_id: entryId, collection_id: collectionId }),
+
+  // Evaluation endpoints
+  generateTestData: (size = 100) => 
+    client.call('evaluation.generateTestData', { size }),
+  runEvaluation: (mode = 'all') => 
+    client.call('evaluation.run', { mode }),
+  generateReport: (format = 'html') => 
+    client.call('evaluation.generateReport', { format }),
+  getLatestResults: () => 
+    client.call('evaluation.getLatestResults', {}),
+  runFullEvaluation: (size = 100) => 
+    client.call('evaluation.runFull', { size }),
 };
